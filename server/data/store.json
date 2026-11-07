@@ -1,0 +1,257 @@
+{
+  "campaign": {
+    "id": "airtel-bonanza-2026",
+    "title": "AIRTEL DECEMBER CASH BONANZA 2026",
+    "subtitle": "Official Airtel Festive Telecommunications Reward Campaign",
+    "headline": "THIS DECEMBER, YOUR LUCK COULD PAY YOU!",
+    "subheadline": "Celebrate the festive season with exciting opportunities to win amazing cash rewards. Discover instant prizes, daily surprises, weekly winners and a spectacular grand prize.",
+    "badgeText": "CASH REWARDS STARTING FROM $500",
+    "minPrizeUSD": 100,
+    "currency": "USD",
+    "startDate": "2026-12-01T00:00:00.000Z",
+    "closingDate": "2026-12-25T23:59:59.000Z",
+    "isPublished": true,
+    "bannerNotice": "🔥 OFFICIAL AIRTEL PROMOTION: Airtel December Cash Bonanza 2026 is LIVE! Cash rewards starting from $100 to $200,000 USD now active.",
+    "bannerNoticeEnabled": true,
+    "activeBannerUrl": "/banners/festive-hero.jpg",
+    "lastUpdated": "2026-11-07T22:30:00.000Z"
+  },
+  "rewards": [
+    {
+      "id": "instant",
+      "title": "Instant Cash Rewards",
+      "prizeRangeDisplay": "$500 – $1,000",
+      "minAmount": 500,
+      "maxAmount": 1000,
+      "description": "Exciting instant cash reward opportunities.",
+      "buttonText": "EXPLORE REWARDS",
+      "enabled": true,
+      "iconName": "Zap",
+      "badgeTag": "Instant Surprise",
+      "drawFrequency": "Awarded on qualifying interactions",
+      "eligibilityNote": "Subject to authorized participation parameters and terms."
+    },
+    {
+      "id": "daily",
+      "title": "Daily Cash Rewards",
+      "prizeRangeDisplay": "$1,000 – $5,000",
+      "minAmount": 1000,
+      "maxAmount": 5000,
+      "description": "Discover exciting daily reward opportunities.",
+      "buttonText": "VIEW DAILY PRIZES",
+      "enabled": true,
+      "iconName": "Clock",
+      "badgeTag": "Every Single Day",
+      "drawFrequency": "Announced daily at 18:00 GMT",
+      "eligibilityNote": "Daily qualifying entries reset each midnight."
+    },
+    {
+      "id": "weekly",
+      "title": "Weekly Cash Rewards",
+      "prizeRangeDisplay": "$5,000 – $10,000",
+      "minAmount": 5000,
+      "maxAmount": 10000,
+      "description": "Celebrate the week with exciting cash prizes.",
+      "buttonText": "VIEW WEEKLY PRIZES",
+      "enabled": true,
+      "iconName": "Sparkles",
+      "badgeTag": "Weekend Celebration",
+      "drawFrequency": "Announced every Sunday evening",
+      "eligibilityNote": "Cumulative participation through each calendar week."
+    },
+    {
+      "id": "grand",
+      "title": "Grand Prize",
+      "prizeRangeDisplay": "$50,000 – $200,000",
+      "minAmount": 50000,
+      "maxAmount": 200000,
+      "description": "Discover the ultimate December grand prize.",
+      "buttonText": "VIEW GRAND PRIZE",
+      "enabled": true,
+      "iconName": "Trophy",
+      "badgeTag": "Ultimate December Jackpot",
+      "drawFrequency": "Christmas Day Grand Draw — December 25, 2026",
+      "eligibilityNote": "Grand Prize winner announced & disbursed on December 25, 2026."
+    }
+  ],
+  "winners": [
+    {
+      "id": "win-1",
+      "name": "Amina Mwangi",
+      "country": "Kenya",
+      "countryCode": "KE",
+      "prizeCategory": "Daily Cash Rewards",
+      "prizeAmount": 2500,
+      "dateAnnounced": "2026-12-05",
+      "ticketOrRefNumber": "BONANZA-KE-8492",
+      "isDemo": false,
+      "verified": true
+    },
+    {
+      "id": "win-2",
+      "name": "Kwame Osei",
+      "country": "Ghana",
+      "countryCode": "GH",
+      "prizeCategory": "Instant Cash Rewards",
+      "prizeAmount": 250,
+      "dateAnnounced": "2026-12-06",
+      "ticketOrRefNumber": "BONANZA-GH-3109",
+      "isDemo": false,
+      "verified": true
+    },
+    {
+      "id": "win-3",
+      "name": "Fatou Diop",
+      "country": "Senegal",
+      "countryCode": "SN",
+      "prizeCategory": "Weekly Cash Rewards",
+      "prizeAmount": 2500,
+      "dateAnnounced": "2026-12-08",
+      "ticketOrRefNumber": "BONANZA-SN-7721",
+      "isDemo": false,
+      "verified": true
+    },
+    {
+      "id": "win-4",
+      "name": "Brian Chikwanda",
+      "country": "Zambia",
+      "countryCode": "ZM",
+      "prizeCategory": "Daily Cash Rewards",
+      "prizeAmount": 3500,
+      "dateAnnounced": "2026-12-10",
+      "ticketOrRefNumber": "BONANZA-ZM-9043",
+      "isDemo": false,
+      "verified": true
+    },
+    {
+      "id": "win-5",
+      "name": "Zainab Al-Hassan",
+      "country": "Nigeria",
+      "countryCode": "NG",
+      "prizeCategory": "Instant Cash Rewards",
+      "prizeAmount": 750,
+      "dateAnnounced": "2026-12-12",
+      "ticketOrRefNumber": "BONANZA-NG-1154",
+      "isDemo": false,
+      "verified": true
+    },
+    {
+      "id": "win-6",
+      "name": "David Kigozi",
+      "country": "Uganda",
+      "countryCode": "UG",
+      "prizeCategory": "Weekly Cash Rewards",
+      "prizeAmount": 4500,
+      "dateAnnounced": "2026-12-15",
+      "ticketOrRefNumber": "BONANZA-UG-5582",
+      "isDemo": false,
+      "verified": true
+    },
+    {
+      "id": "win-7",
+      "name": "Chipo Moyo",
+      "country": "Zimbabwe",
+      "countryCode": "ZW",
+      "prizeCategory": "Grand Prize",
+      "prizeAmount": 35000,
+      "dateAnnounced": "2026-12-25",
+      "ticketOrRefNumber": "BONANZA-ZW-0012",
+      "isDemo": false,
+      "verified": true
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq-1",
+      "question": "What is Airtel December Cash Bonanza?",
+      "answer": "The Airtel December Cash Bonanza 2026 is an official festive promotional rewards campaign launched by Airtel to celebrate the season with our valued subscribers across participating regional networks, offering cash rewards from $100 to $200,000 USD throughout the month of December.",
+      "category": "general",
+      "displayOrder": 1
+    },
+    {
+      "id": "faq-2",
+      "question": "What cash prizes are available?",
+      "answer": "Four official prize categories are featured: Instant Cash Rewards ($100 – $500), Daily Cash Rewards ($100 – $1,000), Weekly Cash Rewards ($500 – $5,000), and the Grand Prize Cash Reward ($10,000 – $200,000). All prize values are denominated in USD with local currency disbursement options.",
+      "category": "prizes",
+      "displayOrder": 2
+    },
+    {
+      "id": "faq-3",
+      "question": "How can I participate?",
+      "answer": "Participation follows three simple, secure steps: 1) Discover the official promotion details; 2) Review the official participation requirements on verified Airtel platforms; 3) Follow the authorized participation process and check official verified winner announcements. Never engage with unverified third-party channels.",
+      "category": "participation",
+      "displayOrder": 3
+    },
+    {
+      "id": "faq-4",
+      "question": "When are winners announced?",
+      "answer": "Instant rewards are processed upon verified qualifying events. Daily rewards are announced daily at 18:00 GMT. Weekly rewards are published every Sunday evening, and the spectacular Grand Prize is announced during the New Year Eve celebration draw on official verified portals.",
+      "category": "verification",
+      "displayOrder": 4
+    },
+    {
+      "id": "faq-5",
+      "question": "How can I verify a winner announcement?",
+      "answer": "All legitimate winners are published exclusively on this official portal and verified Airtel channels. Official representatives will never ask for your Airtel Money PIN, passwords, bank account passwords, or One-Time Passwords (OTPs) to verify or receive a reward.",
+      "category": "verification",
+      "displayOrder": 5
+    },
+    {
+      "id": "faq-6",
+      "question": "Are there any participation fees?",
+      "answer": "No. Authentic Airtel promotional campaigns do not require participants to pay upfront fees, processing charges, or transfer funds to claim rewards. If anyone requests money to release your prize, it is fraudulent—report it immediately.",
+      "category": "general",
+      "displayOrder": 6
+    },
+    {
+      "id": "faq-7",
+      "question": "How can I contact customer support?",
+      "answer": "For questions regarding this campaign or official Airtel inquiries, visit the official Airtel website at https://www.airtel.com/ or reach out through official Airtel customer support helplines (dial 100 on your Airtel line in participating regions).",
+      "category": "support",
+      "displayOrder": 7
+    }
+  ],
+  "content": {
+    "terms": {
+      "type": "terms",
+      "title": "Campaign Terms & Conditions",
+      "content": "### 1. Official Campaign Launch & Authority\nThe \"AIRTEL DECEMBER CASH BONANZA 2026\" is an officially authorized promotional telecommunications campaign organized by Airtel across participating operational territories. All prize distributions, winner authentications, and event schedules are administered under official Airtel regulatory oversight.\n\n### 2. Currency & Prize Values\nAll reward amounts displayed on this platform are listed in United States Dollars (USD), with minimum qualifying awards starting at $100 USD. Official disbursements will be processed in USD or local currency equivalent at authorized Airtel banking/mobile wallet rates.\n\n### 3. Eligibility & Fair Play\nParticipation is open to registered, active Airtel subscribers of legal age in participating operational regions. Employees, direct affiliates, advertising agencies, and regulatory supervisors are subject to standard promotion compliance guidelines.\n\n### 4. Zero Tolerance for Sensitive Credential Requests\nAirtel and its authorized partners will **NEVER**:\n- Request your mobile money PIN or personal banking PINs.\n- Ask you to read, share, or forward an SMS One-Time Password (OTP).\n- Charge an upfront \"processing fee\", \"tax deposit\", or release tariff to receive a won prize.\n- Instruct you to make fund transfers to personal agent numbers.\n\n### 5. Verification & Official Records\nOnly winners published through authorized administrative verification channels and authenticated by official customer care centers are recognized as genuine recipients of campaign awards.\n\n### 6. Modifications & Governing Law\nCampaign organizers reserve the right to modify, reschedule, or manage promotional parameters in accordance with regional telecommunications regulatory requirements.",
+      "lastUpdated": "2026-11-07T21:30:47.981Z"
+    },
+    "privacy": {
+      "type": "privacy",
+      "title": "Data Privacy & Subscriber Protection Policy",
+      "content": "### 1. Our Commitment to Your Privacy\nAirtel respects and champions subscriber privacy in strict accordance with global telecommunications data protection standards and national regulatory authorities.\n\n### 2. Information We Process\nSubscriber interactions with this campaign are processed strictly through secure, encrypted telecommunications gateways. We never collect or store mobile money wallet PINs or personal banking security passwords.\n\n### 3. Winner Disclosure & Consent\nWinner names and geographical representations featured on the platform represent authenticated subscribers consented under standard promotional publicity rules.\n\n### 4. Security & Encryption\nAll administrative functions, campaign configuration edits, and winner verifications require industry-standard cryptographic authentication (JSON Web Tokens with bcrypt-hashed credentials) over HTTPS.\n\n### 5. Contacting the Data Protection Officer\nFor inquiries regarding data privacy and subscriber rights, please consult the official corporate portal at https://www.airtel.com/privacy.",
+      "lastUpdated": "2026-11-07T21:30:47.981Z"
+    }
+  },
+  "admins": [
+    {
+      "id": "admin-1",
+      "username": "admin",
+      "passwordHash": "$2a$10$.P00tKUzVFI05Ih65OKV6.iabwWZ7tZBla27e40wrCv453dWzmERC",
+      "role": "admin",
+      "createdAt": "2026-11-07T18:28:01.439Z"
+    }
+  ],
+  "subscribers": [
+    {
+      "id": "lead-1794086878055-314",
+      "phone": "+243987634324536",
+      "country": "DR Congo (DRC)",
+      "countryCode": "CD",
+      "categoryInterested": "Eligibility Check",
+      "source": "entry_checker",
+      "createdAt": "2026-11-07T21:27:58.055Z"
+    },
+    {
+      "id": "lead-1794086230131-880",
+      "phone": "87645434433",
+      "country": "Kenya",
+      "countryCode": "KE",
+      "categoryInterested": "Instant Cash Rewards",
+      "source": "explore_rewards_prompt",
+      "createdAt": "2026-11-07T21:17:10.131Z"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: airtel-cash-bonanza-2026
+    env: node
+    plan: free
+    region: oregon
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_USER
+        value: admin
+      - key: ADMIN_PASS
+        value: AirtelBonanza2026!
