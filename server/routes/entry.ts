@@ -99,7 +99,7 @@ router.post('/register', (req: Request, res: Response) => {
     });
   } catch (error) {
     console.error('Register subscriber error:', error);
-    return res.status(500).json({ success: false, message: 'Server error saving subscriber.' });
+    return res.status(500).json({ success: false, message: "Erreur serveur lors de l'enregistrement de l'abonné." });
   }
 });
 
@@ -110,7 +110,7 @@ router.get('/subscribers', requireAuth, (_req: Request, res: Response) => {
     return res.json({ success: true, subscribers });
   } catch (error) {
     console.error('Fetch subscribers error:', error);
-    return res.status(500).json({ success: false, message: 'Failed to fetch subscribers.' });
+    return res.status(500).json({ success: false, message: "Échec de la récupération des abonnés." });
   }
 });
 
@@ -119,10 +119,10 @@ router.delete('/subscribers/:id', requireAuth, (req: Request, res: Response) => 
   try {
     const { id } = req.params;
     const ok = db.deleteSubscriber(id as string);
-    return res.json({ success: ok, message: ok ? 'Subscriber deleted' : 'Subscriber not found' });
+    return res.json({ success: ok, message: ok ? 'Abonné supprimé' : 'Abonné introuvable' });
   } catch (error) {
     console.error('Delete subscriber error:', error);
-    return res.status(500).json({ success: false, message: 'Failed to delete subscriber.' });
+    return res.status(500).json({ success: false, message: "Échec de la suppression de l'abonné." });
   }
 });
 

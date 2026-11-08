@@ -14,7 +14,7 @@ function getAuthHeaders(): HeadersInit {
 export async function fetchCampaign(): Promise<CampaignConfig> {
   const res = await fetch(`${API_BASE}/campaign`);
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || 'Failed to fetch campaign configuration');
+  if (!data.success) throw new Error(data.message || "Échec de la récupération de la configuration");
   return data.campaign;
 }
 
@@ -25,7 +25,7 @@ export async function updateCampaign(updates: Partial<CampaignConfig>): Promise<
     body: JSON.stringify(updates)
   });
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || 'Failed to update campaign');
+  if (!data.success) throw new Error(data.message || "Échec de la mise à jour de la campagne");
   return data.campaign;
 }
 
@@ -34,7 +34,7 @@ export async function fetchStats(): Promise<DashboardStats> {
     headers: getAuthHeaders()
   });
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || 'Failed to fetch statistics');
+  if (!data.success) throw new Error(data.message || "Échec de la récupération des statistiques");
   return data.stats;
 }
 
@@ -44,14 +44,14 @@ export async function resetDemoData(): Promise<void> {
     headers: getAuthHeaders()
   });
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || 'Failed to reset demo dataset');
+  if (!data.success) throw new Error(data.message || "Échec de la réinitialisation des données");
 }
 
 // Rewards APIs
 export async function fetchRewards(showAll = false): Promise<RewardCategory[]> {
   const res = await fetch(`${API_BASE}/rewards?all=${showAll}`);
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || 'Failed to fetch rewards');
+  if (!data.success) throw new Error(data.message || "Échec de la récupération des récompenses");
   return data.rewards;
 }
 
@@ -62,7 +62,7 @@ export async function updateReward(id: string, updates: Partial<RewardCategory>)
     body: JSON.stringify(updates)
   });
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || 'Failed to update reward');
+  if (!data.success) throw new Error(data.message || "Échec de la mise à jour de la récompense");
   return data.reward;
 }
 
@@ -74,7 +74,7 @@ export async function fetchWinners(category = 'all', search = ''): Promise<Winne
 
   const res = await fetch(`${API_BASE}/winners?${params.toString()}`);
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || 'Failed to fetch winners');
+  if (!data.success) throw new Error(data.message || "Échec de la récupération des gagnants");
   return data.winners;
 }
 
@@ -85,7 +85,7 @@ export async function addWinner(winner: Omit<Winner, 'id'>): Promise<Winner> {
     body: JSON.stringify(winner)
   });
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || 'Failed to add winner');
+  if (!data.success) throw new Error(data.message || "Échec de l'ajout du gagnant");
   return data.winner;
 }
 
@@ -96,7 +96,7 @@ export async function updateWinner(id: string, updates: Partial<Winner>): Promis
     body: JSON.stringify(updates)
   });
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || 'Failed to update winner');
+  if (!data.success) throw new Error(data.message || "Échec de la mise à jour du gagnant");
   return data.winner;
 }
 
@@ -106,14 +106,14 @@ export async function deleteWinner(id: string): Promise<void> {
     headers: getAuthHeaders()
   });
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || 'Failed to delete winner');
+  if (!data.success) throw new Error(data.message || "Échec de la suppression du gagnant");
 }
 
 // FAQs APIs
 export async function fetchFAQs(): Promise<FAQItem[]> {
   const res = await fetch(`${API_BASE}/faqs`);
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || 'Failed to fetch FAQs');
+  if (!data.success) throw new Error(data.message || "Échec de la récupération des FAQs");
   return data.faqs;
 }
 
@@ -124,7 +124,7 @@ export async function addFAQ(faq: Omit<FAQItem, 'id'>): Promise<FAQItem> {
     body: JSON.stringify(faq)
   });
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || 'Failed to add FAQ');
+  if (!data.success) throw new Error(data.message || "Échec de l'ajout de la FAQ");
   return data.faq;
 }
 
@@ -135,7 +135,7 @@ export async function updateFAQ(id: string, updates: Partial<FAQItem>): Promise<
     body: JSON.stringify(updates)
   });
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || 'Failed to update FAQ');
+  if (!data.success) throw new Error(data.message || "Échec de la mise à jour de la FAQ");
   return data.faq;
 }
 
@@ -145,14 +145,14 @@ export async function deleteFAQ(id: string): Promise<void> {
     headers: getAuthHeaders()
   });
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || 'Failed to delete FAQ');
+  if (!data.success) throw new Error(data.message || "Échec de la suppression de la FAQ");
 }
 
 // Content APIs
 export async function fetchContent(type: 'terms' | 'privacy'): Promise<ContentPage> {
   const res = await fetch(`${API_BASE}/content/${type}`);
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || `Failed to fetch ${type}`);
+  if (!data.success) throw new Error(data.message || `Échec de la récupération de ${type}`);
   return data.page;
 }
 
@@ -163,7 +163,7 @@ export async function updateContent(type: 'terms' | 'privacy', content: string, 
     body: JSON.stringify({ content, title })
   });
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || `Failed to update ${type}`);
+  if (!data.success) throw new Error(data.message || `Échec de la mise à jour de ${type}`);
   return data.page;
 }
 
@@ -175,7 +175,7 @@ export async function loginAdmin(username: string, password: string): Promise<{ 
     body: JSON.stringify({ username, password })
   });
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || 'Invalid username or password');
+  if (!data.success) throw new Error(data.message || "Nom d'utilisateur ou mot de passe incorrect");
   return { token: data.token, user: data.user };
 }
 
@@ -184,7 +184,7 @@ export async function verifyAuth(): Promise<AdminUser> {
     headers: getAuthHeaders()
   });
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || 'Session expired');
+  if (!data.success) throw new Error(data.message || "Session expirée");
   return data.user;
 }
 
@@ -196,7 +196,7 @@ export async function registerSubscriber(phone: string, countryCode: string, cat
     body: JSON.stringify({ phone, countryCode, category })
   });
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || 'Registration failed');
+  if (!data.success) throw new Error(data.message || "Échec de l'enregistrement");
   return data;
 }
 
@@ -205,7 +205,7 @@ export async function fetchSubscribers(): Promise<SubscriberLead[]> {
     headers: getAuthHeaders()
   });
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || 'Failed to fetch subscribers');
+  if (!data.success) throw new Error(data.message || "Échec de la récupération des abonnés");
   return data.subscribers || [];
 }
 
@@ -215,6 +215,5 @@ export async function deleteSubscriber(id: string): Promise<void> {
     headers: getAuthHeaders()
   });
   const data = await res.json();
-  if (!data.success) throw new Error(data.message || 'Failed to delete subscriber');
+  if (!data.success) throw new Error(data.message || "Échec de la suppression de l'abonné");
 }
-
