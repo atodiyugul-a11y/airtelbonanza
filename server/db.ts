@@ -2,11 +2,21 @@ import fs from 'fs';
 import path from 'path';
 import bcrypt from 'bcryptjs';
 import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 import { DatabaseSchema, CampaignConfig, RewardCategory, Winner, FAQItem, ContentPage, AdminUser, SubscriberLead } from './types.js';
 
 dotenv.config();
 
 const DB_FILE_PATH = path.resolve(process.cwd(), 'server', 'data', 'store.json');
+
+// Mongoose Schema for persistent cloud backup
+const StoreSchema = new mongoose.Schema({
+  key: { type: String, required: true, unique: true },
+  data: { type: mongoose.Schema.Types.Mixed, required: true },
+  updatedAt: { type: Date, default: Date.now }
+});
+
+const MongoStore = mongoose.models.AppStore || mongoose.model('AppStore', StoreSchema);
 
 const DEFAULT_CAMPAIGN: CampaignConfig = {
   id: 'airtel-bonanza-2026',
@@ -273,9 +283,58 @@ Pour toute question relative à la confidentialité des données et aux droits d
 
 class Database {
   private data: DatabaseSchema;
+  private mongoConnected: boolean = false;
 
   constructor() {
     this.data = this.loadOrInit();
+  }
+
+  public isMongoConnected(): boolean {
+    return this.mongoConnected;
+  }
+
+  public async initMongo(): Promise<void> {
+    const mongoUri = process.env.MONGODB_URI;
+    if (!mongoUri) {
+      console.log('📁 Stockage : MONGODB_URI non définie — utilisation de store.json (persistance locale)');
+      return;
+    }
+
+    try {
+      console.log('⏳ Connexion à MongoDB Atlas en cours...');
+      await mongoose.connect(mongoUri, { serverSelectionTimeoutMS: 8000 });
+      this.mongoConnected = true;
+      console.log('🍃 Connecté à MongoDB Atlas avec succès !');
+
+      // Check if remote data exists
+      const existing = await MongoStore.findOne({ key: 'main_store' }).lean();
+      if (existing && (existing as any).data) {
+        const remoteData = (existing as any).data;
+        // Merge with remote data preserving subscribers and changes
+        this.data = {
+          ...this.data,
+          ...remoteData,
+          campaign: { ...this.data.campaign, ...(remoteData.campaign || {}) },
+          content: { ...this.data.content, ...(remoteData.content || {}) }
+        };
+        // Also update local file
+        const tempPath = `${DB_FILE_PATH}.tmp`;
+        fs.writeFileSync(tempPath, JSON.stringify(this.data, null, 2), 'utf-8');
+        fs.renameSync(tempPath, DB_FILE_PATH);
+        console.log('🔄 Données chargées et synchronisées depuis MongoDB Atlas !');
+      } else {
+        // Initial seed into MongoDB
+        await MongoStore.updateOne(
+          { key: 'main_store' },
+          { data: this.data, updatedAt: new Date() },
+          { upsert: true }
+        );
+        console.log('🌱 Base MongoDB initialisée avec les données de la campagne !');
+      }
+    } catch (err: any) {
+      this.mongoConnected = false;
+      console.error('⚠️ Avertissement MongoDB (bascule automatique sur store.json) :', err.message);
+    }
   }
 
   private loadOrInit(): DatabaseSchema {
@@ -344,6 +403,15 @@ class Database {
       const tempPath = `${DB_FILE_PATH}.tmp`;
       fs.writeFileSync(tempPath, JSON.stringify(this.data, null, 2), 'utf-8');
       fs.renameSync(tempPath, DB_FILE_PATH);
+
+      // Async sync with MongoDB Atlas if connected
+      if (this.mongoConnected) {
+        MongoStore.updateOne(
+          { key: 'main_store' },
+          { data: this.data, updatedAt: new Date() },
+          { upsert: true }
+        ).catch((err: any) => console.error('Erreur de synchronisation MongoDB :', err.message));
+      }
     } catch (err) {
       console.error('Error persisting database:', err);
     }

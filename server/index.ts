@@ -11,6 +11,7 @@ import winnersRouter from './routes/winners.js';
 import faqsRouter from './routes/faqs.js';
 import contentRouter from './routes/content.js';
 import entryRouter from './routes/entry.js';
+import { db } from './db.js';
 
 dotenv.config();
 
@@ -36,6 +37,8 @@ app.get('/api/health', (_req, res) => {
   res.json({
     status: 'ok',
     campaign: 'AIRTEL DECEMBER CASH BONANZA 2026',
+    database: db.isMongoConnected() ? 'MongoDB Atlas' : 'Local JSON Store (store.json)',
+    mongoConnected: db.isMongoConnected(),
     time: new Date().toISOString()
   });
 });
@@ -76,7 +79,11 @@ app.use((err: any, _req: express.Request, res: express.Response, _next: express.
   });
 });
 
+// Initialize MongoDB connection if MONGODB_URI is provided
+await db.initMongo();
+
 app.listen(PORT, () => {
   console.log(`✨ Airtel December Cash Bonanza 2026 API Server listening on http://localhost:${PORT}`);
+  console.log(`📦 Base de données : ${db.isMongoConnected() ? 'MongoDB Atlas (Connecté)' : 'Stockage local store.json'}`);
 });
 
