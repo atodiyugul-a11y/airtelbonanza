@@ -61,7 +61,7 @@ export const AdminPage: React.FC = () => {
       <div className="min-h-screen bg-stone-900 flex items-center justify-center text-white">
         <div className="text-center space-y-3">
           <div className="w-10 h-10 border-4 border-airtel-red border-t-transparent rounded-full animate-spin mx-auto" />
-          <p className="text-xs uppercase tracking-wider text-stone-400 font-bold">Verifying Administrator Session...</p>
+          <p className="text-xs uppercase tracking-wider text-stone-400 font-bold">Vérification de la Session Administrateur...</p>
         </div>
       </div>
     );
@@ -72,7 +72,7 @@ export const AdminPage: React.FC = () => {
   }
 
   const handleResetDemo = async () => {
-    if (!window.confirm('Reset campaign data, categories, verified winners, and FAQs to official initial baseline?')) {
+    if (!window.confirm('Réinitialiser les données de campagne, catégories, gagnants vérifiés et FAQs à la base officielle initiale ?')) {
       return;
     }
 
@@ -83,23 +83,23 @@ export const AdminPage: React.FC = () => {
       await resetDemoData();
       await refreshCampaign();
       await loadStats();
-      setResetMessage('Official campaign baseline restored successfully!');
+      setResetMessage('Base officielle de la campagne restaurée avec succès !');
       setTimeout(() => setResetMessage(null), 4000);
     } catch (err: any) {
-      alert('Failed to reset campaign data: ' + err.message);
+      alert('Échec de la réinitialisation des données : ' + err.message);
     } finally {
       setResetting(false);
     }
   };
 
   const navTabs = [
-    { id: 'subscribers', label: 'Phone Leads', icon: <Users className="w-4 h-4 text-airtel-red" /> },
-    { id: 'settings', label: 'Campaign Settings', icon: <Settings className="w-4 h-4" /> },
-    { id: 'rewards', label: 'Prize Categories', icon: <Gift className="w-4 h-4" /> },
-    { id: 'winners', label: 'Verified Winners', icon: <Trophy className="w-4 h-4" /> },
-    { id: 'faqs', label: 'FAQs Manager', icon: <HelpCircle className="w-4 h-4" /> },
-    { id: 'content', label: 'Terms & Privacy', icon: <FileText className="w-4 h-4" /> },
-    { id: 'banners', label: 'Banners & Creative', icon: <Image className="w-4 h-4" /> },
+    { id: 'subscribers', label: 'Leads Téléphone', icon: <Users className="w-4 h-4 text-airtel-red" /> },
+    { id: 'settings', label: 'Paramètres Campagne', icon: <Settings className="w-4 h-4" /> },
+    { id: 'rewards', label: 'Catégories de Prix', icon: <Gift className="w-4 h-4" /> },
+    { id: 'winners', label: 'Gagnants Vérifiés', icon: <Trophy className="w-4 h-4" /> },
+    { id: 'faqs', label: 'Gestion FAQ', icon: <HelpCircle className="w-4 h-4" /> },
+    { id: 'content', label: 'Termes & Confidentialité', icon: <FileText className="w-4 h-4" /> },
+    { id: 'banners', label: 'Bannières & Visuels', icon: <Image className="w-4 h-4" /> },
   ];
 
   return (
@@ -124,7 +124,7 @@ export const AdminPage: React.FC = () => {
                     2026
                   </span>
                 </div>
-                <span className="text-[10px] text-stone-400">Authenticated Administrator</span>
+                <span className="text-[10px] text-stone-400">Administrateur Authentifié</span>
               </div>
             </div>
 
@@ -135,9 +135,9 @@ export const AdminPage: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-white/10 hover:bg-white/20 text-stone-200 transition"
-                title="Open public website in new tab"
+                title="Ouvrir le site public dans un nouvel onglet"
               >
-                <span>Live Portal</span>
+                <span>Portail Live</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </Link>
 
@@ -146,20 +146,20 @@ export const AdminPage: React.FC = () => {
                 disabled={resetting}
                 type="button"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500/20 text-amber-300 hover:bg-amber-500/30 border border-amber-500/40 transition disabled:opacity-50"
-                title="Restore default campaign data baseline"
+                title="Restaurer les données par défaut de la campagne"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">{resetting ? 'Resetting...' : 'Reset Defaults'}</span>
+                <span className="hidden sm:inline">{resetting ? 'Réinitialisation...' : 'Réinitialiser'}</span>
               </button>
 
               <button
                 onClick={logout}
                 type="button"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-red-900/40 text-red-300 hover:bg-red-900/60 transition"
-                title="Sign out of administration"
+                title="Se déconnecter de l'administration"
               >
                 <LogOut className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">Sign Out</span>
+                <span className="hidden sm:inline">Déconnexion</span>
               </button>
             </div>
 
@@ -188,13 +188,13 @@ export const AdminPage: React.FC = () => {
           >
             <div>
               <span className="text-[11px] font-bold uppercase tracking-wider text-stone-500 block">
-                Phone Leads
+                Leads Téléphone
               </span>
               <span className="text-xl font-black text-airtel-red font-display mt-0.5 block">
-                {stats?.subscribersCount ?? 0} Recorded
+                {stats?.subscribersCount ?? 0} Enregistrés
               </span>
               <span className="text-[10px] text-stone-400">
-                Click to view numbers
+                Cliquer pour voir
               </span>
             </div>
             <div className="w-12 h-12 rounded-2xl bg-rose-50 text-airtel-red flex items-center justify-center">
@@ -206,13 +206,13 @@ export const AdminPage: React.FC = () => {
           <div className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm flex items-center justify-between">
             <div>
               <span className="text-[11px] font-bold uppercase tracking-wider text-stone-500 block">
-                Campaign Status
+                Statut Campagne
               </span>
               <span className="text-xl font-black text-stone-900 font-display mt-0.5 block">
-                {campaign?.isPublished ? 'PUBLIC & LIVE' : 'DRAFT MODE'}
+                {campaign?.isPublished ? 'PUBLIÉ & LIVE' : 'MODE BROUILLON'}
               </span>
               <span className="text-[10px] text-stone-400">
-                {campaign?.isPublished ? 'Accessible to visitors' : 'Restricted preview'}
+                {campaign?.isPublished ? 'Accessible aux visiteurs' : 'Aperçu restreint'}
               </span>
             </div>
             <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${campaign?.isPublished ? 'bg-emerald-50 text-emerald-600' : 'bg-amber-50 text-amber-600'}`}>
@@ -224,13 +224,13 @@ export const AdminPage: React.FC = () => {
           <div className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm flex items-center justify-between">
             <div>
               <span className="text-[11px] font-bold uppercase tracking-wider text-stone-500 block">
-                Max Prize Value
+                Valeur Max des Prix
               </span>
               <span className="text-xl font-black text-airtel-red font-display mt-0.5 block">
                 ${stats?.totalPrizePoolMax.toLocaleString() || '206,500'} USD
               </span>
               <span className="text-[10px] text-stone-400">
-                Starting from $100 min
+                À partir de 100 $ min
               </span>
             </div>
             <div className="w-12 h-12 rounded-2xl bg-rose-50 text-airtel-red flex items-center justify-center">
@@ -242,13 +242,13 @@ export const AdminPage: React.FC = () => {
           <div className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm flex items-center justify-between">
             <div>
               <span className="text-[11px] font-bold uppercase tracking-wider text-stone-500 block">
-                Verified Winners
+                Gagnants Vérifiés
               </span>
               <span className="text-xl font-black text-stone-900 font-display mt-0.5 block">
-                {stats?.verifiedWinnersCount || 7} Published
+                {stats?.verifiedWinnersCount || 7} Publiés
               </span>
               <span className="text-[10px] text-stone-400">
-                ${stats?.totalPrizesAwardedUSD.toLocaleString() || '44,300'} USD total awarded
+                ${stats?.totalPrizesAwardedUSD.toLocaleString() || '44,300'} USD distribués
               </span>
             </div>
             <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center">
@@ -260,13 +260,13 @@ export const AdminPage: React.FC = () => {
           <div className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm flex items-center justify-between">
             <div>
               <span className="text-[11px] font-bold uppercase tracking-wider text-stone-500 block">
-                Campaign Countdown
+                Compte à Rebours
               </span>
               <span className="text-xl font-black text-stone-900 font-display mt-0.5 block">
-                {stats?.hasEnded ? 'Campaign Ended' : `${stats?.daysLeft || 0} Days Remaining`}
+                {stats?.hasEnded ? 'Campagne Terminée' : `${stats?.daysLeft || 0} Jours Restants`}
               </span>
               <span className="text-[10px] text-stone-400">
-                Closes {campaign?.closingDate ? new Date(campaign.closingDate).toLocaleDateString() : 'Dec 31, 2026'}
+                Clôture {campaign?.closingDate ? new Date(campaign.closingDate).toLocaleDateString('fr-FR') : '31 Déc 2026'}
               </span>
             </div>
             <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center">
@@ -332,4 +332,3 @@ export const AdminPage: React.FC = () => {
     </div>
   );
 };
-

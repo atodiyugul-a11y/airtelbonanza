@@ -21,7 +21,7 @@ export const ContentEditorTab: React.FC = () => {
       setTitle(data.title);
       setBodyText(data.content);
     } catch (err: any) {
-      setFeedback({ type: 'error', msg: err.message || 'Failed to load page content.' });
+      setFeedback({ type: 'error', msg: err.message || 'Échec du chargement du contenu de la page.' });
     } finally {
       setLoading(false);
     }
@@ -39,9 +39,9 @@ export const ContentEditorTab: React.FC = () => {
     try {
       const updated = await updateContent(selectedType, bodyText, title);
       setContentPage(updated);
-      setFeedback({ type: 'success', msg: `${selectedType === 'terms' ? 'Terms & Conditions' : 'Privacy Policy'} updated successfully.` });
+      setFeedback({ type: 'success', msg: `${selectedType === 'terms' ? 'Termes & Conditions' : 'Politique de Confidentialité'} mis à jour avec succès.` });
     } catch (err: any) {
-      setFeedback({ type: 'error', msg: err.message || 'Failed to save changes.' });
+      setFeedback({ type: 'error', msg: err.message || 'Échec de la sauvegarde des modifications.' });
     } finally {
       setSaving(false);
     }
@@ -54,10 +54,10 @@ export const ContentEditorTab: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-stone-200">
         <div>
           <h2 className="text-xl font-black uppercase text-stone-900 font-display">
-            Legal & Policy Content Editor
+            Éditeur de Contenu Légal &amp; Politique
           </h2>
           <p className="text-xs text-stone-500 mt-1">
-            Maintain the official campaign terms, concept disclosures, and subscriber data privacy policies.
+            Gérez les termes officiels de la campagne, divulgations et politiques de confidentialité des abonnés.
           </p>
         </div>
 
@@ -73,7 +73,7 @@ export const ContentEditorTab: React.FC = () => {
             }`}
           >
             <FileText className="w-3.5 h-3.5" />
-            <span>Terms & Conditions</span>
+            <span>Termes &amp; Conditions</span>
           </button>
           <button
             type="button"
@@ -85,7 +85,7 @@ export const ContentEditorTab: React.FC = () => {
             }`}
           >
             <Shield className="w-3.5 h-3.5" />
-            <span>Privacy Policy</span>
+            <span>Politique de Confidentialité</span>
           </button>
         </div>
       </div>
@@ -104,12 +104,12 @@ export const ContentEditorTab: React.FC = () => {
       )}
 
       {loading ? (
-        <div className="py-12 text-center text-xs text-stone-400">Loading document...</div>
+        <div className="py-12 text-center text-xs text-stone-400">Chargement du document...</div>
       ) : (
         <form onSubmit={handleSave} className="space-y-6">
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">
-              Document Display Title
+              Titre d'Affichage du Document
             </label>
             <input
               type="text"
@@ -123,9 +123,9 @@ export const ContentEditorTab: React.FC = () => {
           <div>
             <div className="flex items-center justify-between mb-1">
               <label className="block text-xs font-bold uppercase tracking-wider text-stone-700">
-                Document Body Content (Markdown format supported)
+                Contenu du Document (format Markdown pris en charge)
               </label>
-              <span className="text-[10px] text-stone-400">Use '### Heading' for sections</span>
+              <span className="text-[10px] text-stone-400">Utilisez '### Titre' pour les sections</span>
             </div>
             <textarea
               rows={16}
@@ -143,7 +143,7 @@ export const ContentEditorTab: React.FC = () => {
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-airtel-red hover:bg-airtel-darkred text-white text-xs font-black uppercase tracking-wider shadow-sm transition disabled:opacity-50"
             >
               <Save className="w-4 h-4" />
-              <span>{saving ? 'Publishing Changes...' : 'Save & Publish Document'}</span>
+              <span>{saving ? 'Publication en cours...' : 'Sauvegarder &amp; Publier le Document'}</span>
             </button>
           </div>
         </form>
@@ -152,4 +152,3 @@ export const ContentEditorTab: React.FC = () => {
     </div>
   );
 };
-

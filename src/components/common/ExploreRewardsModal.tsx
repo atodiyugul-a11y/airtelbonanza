@@ -16,24 +16,24 @@ export const ExploreRewardsModal: React.FC<ExploreRewardsModalProps> = ({
   onSuccess
 }) => {
   const countries = [
-    { code: 'CD', name: 'DR Congo (DRC)', prefix: '+243', placeholder: '99 123 4567' },
+    { code: 'CD', name: 'RD Congo (RDC)', prefix: '+243', placeholder: '99 123 4567' },
     { code: 'CG', name: 'Congo (Brazzaville)', prefix: '+242', placeholder: '05 123 4567' },
     { code: 'KE', name: 'Kenya', prefix: '+254', placeholder: '712 345 678' },
     { code: 'NG', name: 'Nigeria', prefix: '+234', placeholder: '802 123 4567' },
-    { code: 'UG', name: 'Uganda', prefix: '+256', placeholder: '752 123 456' },
-    { code: 'TZ', name: 'Tanzania', prefix: '+255', placeholder: '784 123 456' },
-    { code: 'ZM', name: 'Zambia', prefix: '+260', placeholder: '97 123 4567' },
+    { code: 'UG', name: 'Ouganda', prefix: '+256', placeholder: '752 123 456' },
+    { code: 'TZ', name: 'Tanzanie', prefix: '+255', placeholder: '784 123 456' },
+    { code: 'ZM', name: 'Zambie', prefix: '+260', placeholder: '97 123 4567' },
     { code: 'RW', name: 'Rwanda', prefix: '+250', placeholder: '732 123 456' },
     { code: 'MW', name: 'Malawi', prefix: '+265', placeholder: '99 123 4567' },
     { code: 'MG', name: 'Madagascar', prefix: '+261', placeholder: '33 12 345 67' },
     { code: 'GA', name: 'Gabon', prefix: '+241', placeholder: '07 12 34 56' },
-    { code: 'TD', name: 'Chad', prefix: '+235', placeholder: '66 12 34 56' },
+    { code: 'TD', name: 'Tchad', prefix: '+235', placeholder: '66 12 34 56' },
     { code: 'NE', name: 'Niger', prefix: '+227', placeholder: '90 12 34 56' },
     { code: 'SC', name: 'Seychelles', prefix: '+248', placeholder: '2 51 23 45' },
-    { code: 'IN', name: 'India', prefix: '+91', placeholder: '98123 45678' },
+    { code: 'IN', name: 'Inde', prefix: '+91', placeholder: '98123 45678' },
   ];
 
-  const [countryCode, setCountryCode] = useState('KE');
+  const [countryCode, setCountryCode] = useState('CD');
   const [phone, setPhone] = useState('');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -48,7 +48,7 @@ export const ExploreRewardsModal: React.FC<ExploreRewardsModalProps> = ({
     e.preventDefault();
     const rawDigits = phone.replace(/[^0-9]/g, '');
     if (!rawDigits) {
-      setError('Please enter your mobile number.');
+      setError('Veuillez saisir votre numéro mobile.');
       return;
     }
 
@@ -59,12 +59,12 @@ export const ExploreRewardsModal: React.FC<ExploreRewardsModalProps> = ({
     setError(null);
 
     try {
-      await registerSubscriber(fullNumber, countryCode, categoryTitle || 'All Rewards');
+      await registerSubscriber(fullNumber, countryCode, categoryTitle || 'Toutes les Récompenses');
       setSubmittedPhone(fullNumber);
       setSuccess(true);
       if (onSuccess) onSuccess();
     } catch (err: any) {
-      setError(err.message || 'Failed to submit mobile number.');
+      setError(err.message || "Échec de l'enregistrement du numéro mobile.");
     } finally {
       setLoading(false);
     }
@@ -84,7 +84,7 @@ export const ExploreRewardsModal: React.FC<ExploreRewardsModalProps> = ({
           onClick={handleReset}
           type="button"
           className="absolute top-4 right-4 p-1.5 rounded-lg text-stone-400 hover:text-stone-700 hover:bg-stone-100 transition-colors"
-          aria-label="Close"
+          aria-label="Fermer"
         >
           <X className="w-5 h-5" />
         </button>
@@ -93,17 +93,17 @@ export const ExploreRewardsModal: React.FC<ExploreRewardsModalProps> = ({
           <div className="space-y-5">
             <div>
               <span className="text-[10px] font-bold uppercase tracking-wider text-airtel-red block mb-1">
-                Airtel December Cash Bonanza 2026
+                Airtel Grande Tombola de Décembre 2026
               </span>
               <h3 className="text-xl sm:text-2xl font-black text-stone-900 tracking-tight font-display">
-                Explore Cash Rewards
+                Explorer les Récompenses Cash
               </h3>
               <p className="text-xs sm:text-sm text-stone-500 mt-1 leading-relaxed">
-                Enter your mobile number starting with your country code to register your line for official December draw announcements.
+                Entrez votre numéro de mobile avec l'indicatif pays pour enregistrer votre ligne pour les annonces officielles des tirages de décembre.
               </p>
               {categoryTitle && (
                 <div className="mt-2.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-rose-50 text-airtel-red text-xs font-semibold">
-                  <span>Category: {categoryTitle}</span>
+                  <span>Catégorie : {categoryTitle}</span>
                 </div>
               )}
             </div>
@@ -111,7 +111,7 @@ export const ExploreRewardsModal: React.FC<ExploreRewardsModalProps> = ({
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-xs font-semibold text-stone-700 mb-1">
-                  Country & Dial Code
+                  Pays & Indicatif
                 </label>
                 <select
                   value={countryCode}
@@ -128,7 +128,7 @@ export const ExploreRewardsModal: React.FC<ExploreRewardsModalProps> = ({
 
               <div>
                 <label className="block text-xs font-semibold text-stone-700 mb-1">
-                  Airtel Mobile Number
+                  Numéro Mobile Airtel
                 </label>
                 <div className="flex rounded-lg shadow-sm">
                   {/* Fixed country code badge */}
@@ -147,7 +147,7 @@ export const ExploreRewardsModal: React.FC<ExploreRewardsModalProps> = ({
                   </div>
                 </div>
                 <p className="text-[11px] text-stone-400 mt-1">
-                  Full format: <span className="font-mono text-stone-600 font-bold">{selectedCountry.prefix} {phone || selectedCountry.placeholder}</span>
+                  Format complet : <span className="font-mono text-stone-600 font-bold">{selectedCountry.prefix} {phone || selectedCountry.placeholder}</span>
                 </p>
               </div>
 
@@ -163,14 +163,14 @@ export const ExploreRewardsModal: React.FC<ExploreRewardsModalProps> = ({
                 disabled={loading}
                 className="w-full py-3 px-4 rounded-lg bg-airtel-red hover:bg-airtel-darkred text-white font-semibold text-xs sm:text-sm uppercase tracking-wider transition-colors duration-150 flex items-center justify-center gap-2 disabled:opacity-50"
               >
-                <span>{loading ? 'Submitting Line Details...' : 'Continue to Rewards'}</span>
+                <span>{loading ? 'Enregistrement en cours...' : 'Continuer vers les Récompenses'}</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </form>
 
             <div className="flex items-center gap-1.5 text-[11px] text-stone-400 pt-1">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
-              <span>Official verification · No fees required · We never ask for PINs</span>
+              <span>Vérification officielle · Aucun frais requis · Nous ne demandons jamais de code PIN</span>
             </div>
           </div>
         ) : (
@@ -181,15 +181,15 @@ export const ExploreRewardsModal: React.FC<ExploreRewardsModalProps> = ({
 
             <div className="space-y-1">
               <h3 className="text-xl font-black text-stone-900 tracking-tight font-display">
-                Number Registered!
+                Numéro Enregistré !
               </h3>
               <p className="text-xs sm:text-sm text-stone-600 max-w-xs mx-auto leading-relaxed">
-                Your Airtel line <span className="font-mono font-bold text-stone-900">{submittedPhone}</span> is logged with the campaign team.
+                Votre ligne Airtel <span className="font-mono font-bold text-stone-900">{submittedPhone}</span> est enregistrée auprès de l'équipe de la promotion.
               </p>
             </div>
 
             <div className="p-3 rounded-lg bg-stone-50 border border-stone-200 text-xs text-stone-500">
-              Draw announcements and grand prize payout: <strong>December 25, 2026</strong>.
+              Annonces des tirages et distribution du Grand Prix : <strong>25 Décembre 2026</strong>.
             </div>
 
             <button
@@ -197,7 +197,7 @@ export const ExploreRewardsModal: React.FC<ExploreRewardsModalProps> = ({
               onClick={handleReset}
               className="w-full py-3 rounded-lg bg-stone-900 text-white font-semibold text-xs uppercase tracking-wider hover:bg-airtel-red transition-colors"
             >
-              Continue Exploring
+              Continuer l'Exploration
             </button>
           </div>
         )}

@@ -22,19 +22,19 @@ export const WinnersPreview: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
           <p className="text-xs font-bold uppercase tracking-widest text-airtel-red mb-3">
-            Verified Winners
+            Gagnants Vérifiés
           </p>
           <h2 className="text-3xl sm:text-4xl font-black text-stone-900 tracking-tight font-display mb-4">
-            Celebrating Our Winners
+            Célébrons Nos Gagnants
           </h2>
           <p className="text-stone-500 text-sm leading-relaxed">
-            Only officially verified and authorized winners are published following identity authentication and audit.
+            Seuls les gagnants officiellement vérifiés et authentifiés sont publiés après contrôle d'identité et audit.
           </p>
         </div>
 
         {/* Winners Grid */}
         {loading ? (
-          <div className="text-center text-stone-400 text-sm py-12">Loading winners…</div>
+          <div className="text-center text-stone-400 text-sm py-12">Chargement des gagnants…</div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {winners.map((winner) => (
@@ -47,7 +47,7 @@ export const WinnersPreview: React.FC = () => {
                   <div className="flex items-center justify-between mb-4">
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
                       <CheckCircle className="w-3 h-3" />
-                      Verified
+                      Vérifié
                     </span>
                     <span className="text-[11px] text-stone-400 font-medium">{winner.prizeCategory}</span>
                   </div>
@@ -67,10 +67,10 @@ export const WinnersPreview: React.FC = () => {
                   <div className="flex items-center justify-between px-4 py-3 rounded-lg bg-stone-50 border border-stone-200">
                     <div>
                       <span className="block text-[10px] font-semibold uppercase tracking-wide text-stone-400">
-                        Awarded
+                        Prix Attribué
                       </span>
                       <span className="text-lg font-black text-airtel-red font-display">
-                        ${winner.prizeAmount.toLocaleString()} USD
+                        {winner.prizeAmount.toLocaleString()} $ USD
                       </span>
                     </div>
                     <Trophy className="w-6 h-6 text-gold" />
@@ -79,7 +79,7 @@ export const WinnersPreview: React.FC = () => {
 
                 {/* Footer */}
                 <p className="mt-4 text-xs text-stone-400">
-                  Announced: <strong className="text-stone-600">{winner.dateAnnounced}</strong>
+                  Annoncé le : <strong className="text-stone-600">{winner.dateAnnounced}</strong>
                 </p>
               </div>
             ))}
@@ -92,7 +92,7 @@ export const WinnersPreview: React.FC = () => {
             to="/winners"
             className="inline-flex items-center gap-2 text-sm font-semibold text-airtel-red hover:text-airtel-darkred transition-colors"
           >
-            View All Winners & Search Records
+            Voir Tous les Gagnants & Rechercher dans les Archives
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

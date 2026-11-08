@@ -21,11 +21,11 @@ export const RewardsManagerTab: React.FC<Props> = ({ rewards, onRefresh }) => {
 
   const handleSave = async (category: RewardCategory) => {
     if (category.minAmount < 100) {
-      setFeedback({ id: category.id, success: false, msg: 'Prizes must start from at least $100 USD.' });
+      setFeedback({ id: category.id, success: false, msg: 'Les prix doivent commencer à au moins 100 $ USD.' });
       return;
     }
     if (category.minAmount > category.maxAmount) {
-      setFeedback({ id: category.id, success: false, msg: 'Min amount cannot exceed Max amount.' });
+      setFeedback({ id: category.id, success: false, msg: 'Le montant minimum ne peut pas dépasser le montant maximum.' });
       return;
     }
 
@@ -44,10 +44,10 @@ export const RewardsManagerTab: React.FC<Props> = ({ rewards, onRefresh }) => {
         eligibilityNote: category.eligibilityNote,
         badgeTag: category.badgeTag
       });
-      setFeedback({ id: category.id, success: true, msg: 'Category updated successfully!' });
+      setFeedback({ id: category.id, success: true, msg: 'Catégorie mise à jour avec succès !' });
       onRefresh();
     } catch (err: any) {
-      setFeedback({ id: category.id, success: false, msg: err.message || 'Failed to update category.' });
+      setFeedback({ id: category.id, success: false, msg: err.message || 'Échec de la mise à jour de la catégorie.' });
     } finally {
       setSavingId(null);
     }
@@ -59,10 +59,10 @@ export const RewardsManagerTab: React.FC<Props> = ({ rewards, onRefresh }) => {
       {/* Header */}
       <div className="pb-6 border-b border-stone-200">
         <h2 className="text-xl font-black uppercase text-stone-900 font-display">
-          Prize Categories Configuration
+          Configuration des Catégories de Prix
         </h2>
         <p className="text-xs text-stone-500 mt-1">
-          Configure the 4 prize reward tiers, customize USD prize ranges starting from $100, and toggle tier availability.
+          Configurez les 4 niveaux de récompenses, personnalisez les fourchettes de prix USD à partir de 100 $ et activez/désactivez les niveaux.
         </p>
       </div>
 
@@ -98,7 +98,7 @@ export const RewardsManagerTab: React.FC<Props> = ({ rewards, onRefresh }) => {
                 {/* Enable/Disable Toggle */}
                 <div className="flex items-center gap-3">
                   <span className="text-xs font-bold text-stone-600">
-                    {cat.enabled ? 'Enabled on Site' : 'Disabled / Hidden'}
+                    {cat.enabled ? 'Activé sur le Site' : 'Désactivé / Masqué'}
                   </span>
                   <button
                     type="button"
@@ -134,7 +134,7 @@ export const RewardsManagerTab: React.FC<Props> = ({ rewards, onRefresh }) => {
                 {/* Min Amount USD */}
                 <div>
                   <label className="block text-[11px] font-bold uppercase tracking-wider text-stone-700 mb-1">
-                    Min Prize ($ USD)
+                    Prix Min ($ USD)
                   </label>
                   <div className="relative">
                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 text-sm">$</span>
@@ -151,7 +151,7 @@ export const RewardsManagerTab: React.FC<Props> = ({ rewards, onRefresh }) => {
                 {/* Max Amount USD */}
                 <div>
                   <label className="block text-[11px] font-bold uppercase tracking-wider text-stone-700 mb-1">
-                    Max Prize ($ USD)
+                    Prix Max ($ USD)
                   </label>
                   <div className="relative">
                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 text-sm">$</span>
@@ -168,7 +168,7 @@ export const RewardsManagerTab: React.FC<Props> = ({ rewards, onRefresh }) => {
                 {/* Button Text */}
                 <div>
                   <label className="block text-[11px] font-bold uppercase tracking-wider text-stone-700 mb-1">
-                    Action Button Text
+                    Texte du Bouton d'Action
                   </label>
                   <input
                     type="text"
@@ -181,7 +181,7 @@ export const RewardsManagerTab: React.FC<Props> = ({ rewards, onRefresh }) => {
                 {/* Badge Tag */}
                 <div>
                   <label className="block text-[11px] font-bold uppercase tracking-wider text-stone-700 mb-1">
-                    Badge Tag Label
+                    Étiquette du Badge
                   </label>
                   <input
                     type="text"
@@ -197,7 +197,7 @@ export const RewardsManagerTab: React.FC<Props> = ({ rewards, onRefresh }) => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                 <div>
                   <label className="block text-[11px] font-bold uppercase tracking-wider text-stone-700 mb-1">
-                    Prize Category Description
+                    Description de la Catégorie de Prix
                   </label>
                   <input
                     type="text"
@@ -209,7 +209,7 @@ export const RewardsManagerTab: React.FC<Props> = ({ rewards, onRefresh }) => {
 
                 <div>
                   <label className="block text-[11px] font-bold uppercase tracking-wider text-stone-700 mb-1">
-                    Draw Frequency Note
+                    Note sur la Fréquence du Tirage
                   </label>
                   <input
                     type="text"
@@ -229,7 +229,7 @@ export const RewardsManagerTab: React.FC<Props> = ({ rewards, onRefresh }) => {
                   className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-stone-900 hover:bg-airtel-red text-white text-xs font-bold transition disabled:opacity-50"
                 >
                   <Save className="w-3.5 h-3.5" />
-                  <span>{isSaving ? 'Updating...' : `Update ${cat.title}`}</span>
+                  <span>{isSaving ? 'Mise à jour...' : `Mettre à jour ${cat.title}`}</span>
                 </button>
               </div>
 
@@ -241,4 +241,3 @@ export const RewardsManagerTab: React.FC<Props> = ({ rewards, onRefresh }) => {
     </div>
   );
 };
-

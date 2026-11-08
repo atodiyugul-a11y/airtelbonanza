@@ -56,29 +56,29 @@ export const FaqManagerTab: React.FC = () => {
     try {
       if (editingFaq) {
         await updateFAQ(editingFaq.id, { question, answer, category });
-        setFeedback({ type: 'success', msg: 'FAQ item updated successfully.' });
+        setFeedback({ type: 'success', msg: 'Question FAQ mise à jour avec succès.' });
       } else {
         await addFAQ({ question, answer, category, displayOrder: faqs.length + 1 });
-        setFeedback({ type: 'success', msg: 'New FAQ item created.' });
+        setFeedback({ type: 'success', msg: 'Nouvelle question FAQ créée.' });
       }
 
       setModalOpen(false);
       loadFaqs();
     } catch (err: any) {
-      setFeedback({ type: 'error', msg: err.message || 'Operation failed.' });
+      setFeedback({ type: 'error', msg: err.message || 'Opération échouée.' });
     } finally {
       setSaving(false);
     }
   };
 
   const handleDelete = async (id: string, q: string) => {
-    if (!window.confirm(`Are you sure you want to remove the question: "${q}"?`)) return;
+    if (!window.confirm(`Voulez-vous vraiment supprimer la question : "${q}" ?`)) return;
     try {
       await deleteFAQ(id);
-      setFeedback({ type: 'success', msg: 'FAQ item removed.' });
+      setFeedback({ type: 'success', msg: 'Question FAQ supprimée.' });
       loadFaqs();
     } catch (err: any) {
-      setFeedback({ type: 'error', msg: err.message || 'Failed to remove FAQ.' });
+      setFeedback({ type: 'error', msg: err.message || 'Échec de la suppression.' });
     }
   };
 
@@ -89,10 +89,10 @@ export const FaqManagerTab: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-stone-200">
         <div>
           <h2 className="text-xl font-black uppercase text-stone-900 font-display">
-            Frequently Asked Questions Management
+            Gestion des Questions Fréquentes
           </h2>
           <p className="text-xs text-stone-500 mt-1">
-            Maintain official consumer FAQs, reward explanations, and anti-fraud alerts.
+            Gérez les FAQs officielles, explications des récompenses et alertes anti-fraude.
           </p>
         </div>
 
@@ -102,7 +102,7 @@ export const FaqManagerTab: React.FC = () => {
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-airtel-red hover:bg-airtel-darkred text-white text-xs font-black uppercase tracking-wider shadow-sm transition"
         >
           <Plus className="w-4 h-4" />
-          <span>Add FAQ Item</span>
+          <span>Ajouter une FAQ</span>
         </button>
       </div>
 
@@ -144,14 +144,14 @@ export const FaqManagerTab: React.FC = () => {
               <button
                 onClick={() => openEditModal(faq)}
                 className="p-2 rounded-xl text-stone-500 hover:text-stone-900 hover:bg-stone-100"
-                title="Edit FAQ"
+                title="Modifier la FAQ"
               >
                 <Edit2 className="w-4 h-4" />
               </button>
               <button
                 onClick={() => handleDelete(faq.id, faq.question)}
                 className="p-2 rounded-xl text-stone-400 hover:text-red-600 hover:bg-red-50"
-                title="Delete FAQ"
+                title="Supprimer la FAQ"
               >
                 <Trash2 className="w-4 h-4" />
               </button>
@@ -173,7 +173,7 @@ export const FaqManagerTab: React.FC = () => {
 
             <h3 className="text-lg font-black uppercase text-stone-900 font-display mb-4 flex items-center gap-2">
               <HelpCircle className="w-5 h-5 text-airtel-red" />
-              {editingFaq ? 'Edit FAQ Item' : 'New FAQ Item'}
+              {editingFaq ? 'Modifier la FAQ' : 'Nouvelle Question FAQ'}
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-4 text-xs">
@@ -184,34 +184,34 @@ export const FaqManagerTab: React.FC = () => {
                   required
                   value={question}
                   onChange={(e) => setQuestion(e.target.value)}
-                  placeholder="e.g. How can I verify a winner announcement?"
+                  placeholder="ex. Comment vérifier une annonce de gagnant ?"
                   className="w-full px-3 py-2 border border-stone-200 rounded-xl font-bold"
                 />
               </div>
 
               <div>
-                <label className="block font-bold text-stone-700 mb-1">Category</label>
+                <label className="block font-bold text-stone-700 mb-1">Catégorie</label>
                 <select
                   value={category}
                   onChange={(e) => setCategory(e.target.value as any)}
                   className="w-full px-3 py-2 border border-stone-200 rounded-xl"
                 >
-                  <option value="general">General</option>
-                  <option value="prizes">Prizes ($ USD)</option>
+                  <option value="general">Général</option>
+                  <option value="prizes">Prix ($ USD)</option>
                   <option value="participation">Participation</option>
-                  <option value="verification">Verification & Safety</option>
+                  <option value="verification">Vérification &amp; Sécurité</option>
                   <option value="support">Support</option>
                 </select>
               </div>
 
               <div>
-                <label className="block font-bold text-stone-700 mb-1">Answer</label>
+                <label className="block font-bold text-stone-700 mb-1">Réponse</label>
                 <textarea
                   rows={4}
                   required
                   value={answer}
                   onChange={(e) => setAnswer(e.target.value)}
-                  placeholder="Approved campaign explanation..."
+                  placeholder="Explication officielle de la campagne..."
                   className="w-full px-3 py-2 border border-stone-200 rounded-xl"
                 />
               </div>
@@ -222,14 +222,14 @@ export const FaqManagerTab: React.FC = () => {
                   onClick={() => setModalOpen(false)}
                   className="w-1/2 py-2.5 rounded-xl border border-stone-200 text-stone-600 font-bold hover:bg-stone-50"
                 >
-                  Cancel
+                  Annuler
                 </button>
                 <button
                   type="submit"
                   disabled={saving}
                   className="w-1/2 py-2.5 rounded-xl bg-airtel-red hover:bg-airtel-darkred text-white font-bold transition disabled:opacity-50"
                 >
-                  {saving ? 'Saving...' : 'Save FAQ'}
+                  {saving ? 'Sauvegarde...' : 'Enregistrer la FAQ'}
                 </button>
               </div>
             </form>
@@ -240,4 +240,3 @@ export const FaqManagerTab: React.FC = () => {
     </div>
   );
 };
-

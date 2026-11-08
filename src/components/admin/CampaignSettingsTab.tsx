@@ -24,10 +24,10 @@ export const CampaignSettingsTab: React.FC<Props> = ({ campaign, onRefresh }) =>
 
     try {
       await updateCampaign(formData);
-      setMessage({ type: 'success', text: 'Campaign configuration saved and live on portal!' });
+      setMessage({ type: 'success', text: 'Configuration de campagne sauvegardée et en ligne sur le portail !' });
       onRefresh();
     } catch (err: any) {
-      setMessage({ type: 'error', text: err.message || 'Failed to update campaign configuration.' });
+      setMessage({ type: 'error', text: err.message || 'Échec de la mise à jour de la configuration.' });
     } finally {
       setSaving(false);
     }
@@ -40,10 +40,10 @@ export const CampaignSettingsTab: React.FC<Props> = ({ campaign, onRefresh }) =>
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-stone-200">
         <div>
           <h2 className="text-xl font-black uppercase text-stone-900 font-display">
-            Campaign Master Settings
+            Paramètres Principaux de la Campagne
           </h2>
           <p className="text-xs text-stone-500 mt-1">
-            Configure campaign headlines, closing dates for countdown, publication status and alerts.
+            Configurez les titres de la campagne, les dates de clôture, le statut de publication et les alertes.
           </p>
         </div>
 
@@ -54,7 +54,7 @@ export const CampaignSettingsTab: React.FC<Props> = ({ campaign, onRefresh }) =>
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-airtel-red hover:bg-airtel-darkred text-white text-xs font-black uppercase tracking-wider shadow-sm transition disabled:opacity-50"
         >
           <Save className="w-4 h-4" />
-          <span>{saving ? 'Saving Changes...' : 'Save Configuration'}</span>
+          <span>{saving ? 'Sauvegarde...' : 'Sauvegarder la Configuration'}</span>
         </button>
       </div>
 
@@ -77,16 +77,16 @@ export const CampaignSettingsTab: React.FC<Props> = ({ campaign, onRefresh }) =>
         <div className="bg-stone-50 rounded-2xl p-6 border border-stone-200 space-y-4">
           <h3 className="text-sm font-black uppercase tracking-wider text-stone-900 flex items-center gap-2">
             <Eye className="w-4 h-4 text-airtel-red" />
-            Publication & Live Visibility
+            Publication &amp; Visibilité Live
           </h3>
 
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-white border border-stone-200">
             <div>
               <span className="font-bold text-sm text-stone-900 block">
-                Campaign Publication Status
+                Statut de Publication de la Campagne
               </span>
               <span className="text-xs text-stone-500">
-                When enabled, the campaign is publicly active. Unpublishing will display maintenance mode.
+                Lorsqu'activé, la campagne est publiquement accessible. Désactiver affiche le mode maintenance.
               </span>
             </div>
 
@@ -99,7 +99,7 @@ export const CampaignSettingsTab: React.FC<Props> = ({ campaign, onRefresh }) =>
               />
               <div className="w-11 h-6 bg-stone-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-600"></div>
               <span className="ml-3 text-xs font-bold uppercase text-stone-700">
-                {formData.isPublished ? 'Published' : 'Draft Mode'}
+                {formData.isPublished ? 'Publié' : 'Mode Brouillon'}
               </span>
             </label>
           </div>
@@ -109,16 +109,16 @@ export const CampaignSettingsTab: React.FC<Props> = ({ campaign, onRefresh }) =>
         <div className="bg-stone-50 rounded-2xl p-6 border border-stone-200 space-y-4">
           <h3 className="text-sm font-black uppercase tracking-wider text-stone-900 flex items-center gap-2">
             <Calendar className="w-4 h-4 text-airtel-red" />
-            Campaign Window & Countdown Clock Target
+            Dates de Campagne &amp; Cible du Compte à Rebours
           </h3>
           <p className="text-xs text-stone-500">
-            The countdown timer calculates dynamically from the closing date configured below.
+            Le compte à rebours est calculé dynamiquement à partir de la date de clôture configurée ci-dessous.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">
-                Campaign Start Date & Time
+                Date &amp; Heure de Début de Campagne
               </label>
               <input
                 type="datetime-local"
@@ -130,7 +130,7 @@ export const CampaignSettingsTab: React.FC<Props> = ({ campaign, onRefresh }) =>
 
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">
-                Campaign Closing Date & Time (Countdown Clock Target)
+                Date &amp; Heure de Clôture (Cible du Compte à Rebours)
               </label>
               <input
                 type="datetime-local"
@@ -146,13 +146,13 @@ export const CampaignSettingsTab: React.FC<Props> = ({ campaign, onRefresh }) =>
         <div className="bg-stone-50 rounded-2xl p-6 border border-stone-200 space-y-4">
           <h3 className="text-sm font-black uppercase tracking-wider text-stone-900 flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-airtel-red" />
-            Promotional Headlines & Copy
+            Titres Promotionnels &amp; Contenu
           </h3>
 
           <div className="space-y-4">
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">
-                Campaign Title
+                Titre de la Campagne
               </label>
               <input
                 type="text"
@@ -164,7 +164,7 @@ export const CampaignSettingsTab: React.FC<Props> = ({ campaign, onRefresh }) =>
 
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">
-                Hero Headline (Large Banner)
+                Titre Héro (Grande Bannière)
               </label>
               <input
                 type="text"
@@ -176,7 +176,7 @@ export const CampaignSettingsTab: React.FC<Props> = ({ campaign, onRefresh }) =>
 
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">
-                Hero Subheadline Description
+                Sous-titre Héro
               </label>
               <textarea
                 rows={3}
@@ -189,7 +189,7 @@ export const CampaignSettingsTab: React.FC<Props> = ({ campaign, onRefresh }) =>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">
-                  Prominent Badge Text
+                  Texte du Badge Prominent
                 </label>
                 <input
                   type="text"
@@ -201,12 +201,12 @@ export const CampaignSettingsTab: React.FC<Props> = ({ campaign, onRefresh }) =>
 
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">
-                  Currency Standard
+                  Devise Standard
                 </label>
                 <input
                   type="text"
                   disabled
-                  value="USD ($ United States Dollars)"
+                  value="USD ($ Dollar Américain)"
                   className="w-full px-4 py-2.5 bg-stone-100 border border-stone-200 rounded-xl text-sm text-stone-500 font-semibold cursor-not-allowed"
                 />
               </div>
@@ -218,13 +218,13 @@ export const CampaignSettingsTab: React.FC<Props> = ({ campaign, onRefresh }) =>
         <div className="bg-stone-50 rounded-2xl p-6 border border-stone-200 space-y-4">
           <h3 className="text-sm font-black uppercase tracking-wider text-stone-900 flex items-center gap-2">
             <Bell className="w-4 h-4 text-airtel-red" />
-            Top Live Announcement Banner
+            Bannière d'Annonce Live en Haut de Page
           </h3>
 
           <div className="flex items-center justify-between p-4 rounded-xl bg-white border border-stone-200 mb-4">
             <div>
-              <span className="font-bold text-sm text-stone-900 block">Show Top Announcement Banner</span>
-              <span className="text-xs text-stone-500">Displays official live ticker banner across top of website</span>
+              <span className="font-bold text-sm text-stone-900 block">Afficher la Bannière d'Annonce</span>
+              <span className="text-xs text-stone-500">Affiche le ticker officiel live en haut du site web</span>
             </div>
             <input
               type="checkbox"
@@ -236,7 +236,7 @@ export const CampaignSettingsTab: React.FC<Props> = ({ campaign, onRefresh }) =>
 
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">
-              Live Announcement Message
+              Message d'Annonce Live
             </label>
             <textarea
               rows={2}
@@ -255,7 +255,7 @@ export const CampaignSettingsTab: React.FC<Props> = ({ campaign, onRefresh }) =>
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-airtel-red hover:bg-airtel-darkred text-white text-xs font-black uppercase tracking-wider shadow-md transition disabled:opacity-50"
           >
             <Save className="w-4 h-4" />
-            <span>{saving ? 'Saving...' : 'Save All Settings'}</span>
+            <span>{saving ? 'Sauvegarde...' : 'Sauvegarder Tous les Paramètres'}</span>
           </button>
         </div>
 
@@ -263,4 +263,3 @@ export const CampaignSettingsTab: React.FC<Props> = ({ campaign, onRefresh }) =>
     </div>
   );
 };
-

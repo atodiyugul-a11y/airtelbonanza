@@ -24,7 +24,7 @@ export const RewardsPreview: React.FC = () => {
     return (
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-stone-400 text-sm">
-          Loading reward categories…
+          Chargement des catégories de prix…
         </div>
       </section>
     );
@@ -37,13 +37,13 @@ export const RewardsPreview: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
           <p className="text-xs font-bold uppercase tracking-widest text-airtel-red mb-3">
-            December 2026 Campaign
+            Campagne de Décembre 2026
           </p>
           <h2 className="text-3xl sm:text-4xl font-black text-stone-900 tracking-tight font-display mb-4">
-            Cash Reward Categories
+            Catégories de Récompenses Cash
           </h2>
           <p className="text-stone-500 text-sm leading-relaxed">
-            All prizes are denominated in USD, starting from $500 up to $200,000. Four tiers of cash rewards across the December campaign window.
+            Tous les prix sont libellés en USD, allant de 500 $ jusqu'à 200 000 $. Quatre paliers de récompenses en espèces tout au long du mois de décembre.
           </p>
         </div>
 
@@ -71,7 +71,7 @@ export const RewardsPreview: React.FC = () => {
                     <span className={`text-[10px] font-bold uppercase tracking-wider ${
                       isGrand ? 'text-stone-400' : 'text-stone-400'
                     }`}>
-                      Tier 0{index + 1}
+                      Palier 0{index + 1}
                     </span>
                   </div>
 
@@ -94,7 +94,7 @@ export const RewardsPreview: React.FC = () => {
                     <span className={`block text-[10px] font-semibold uppercase tracking-wider mb-1 ${
                       isGrand ? 'text-gold/70' : 'text-stone-400'
                     }`}>
-                      Prize Range (USD)
+                      Fourchette de Prix (USD)
                     </span>
                     <span className={`text-xl font-black font-display ${
                       isGrand ? 'text-gold' : 'text-stone-900'
@@ -134,7 +134,7 @@ export const RewardsPreview: React.FC = () => {
 
         {/* Footer note */}
         <p className="mt-10 text-center text-xs text-stone-400">
-          Prize amounts are subject to official campaign terms. All payouts administered through authorized Airtel channels.
+          Les montants des prix sont soumis aux conditions officielles de la campagne. Tous les versements sont effectués via les canaux officiels agréés d'Airtel.
         </p>
 
       </div>

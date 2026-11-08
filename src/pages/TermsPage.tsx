@@ -20,12 +20,12 @@ export const TermsPage: React.FC = () => {
 
         {/* Header */}
         <div className="mb-10">
-          <p className="text-xs font-bold uppercase tracking-widest text-airtel-red mb-2">Legal & Governance</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-airtel-red mb-2">Mentions Légales &amp; Gouvernance</p>
           <h1 className="text-3xl sm:text-4xl font-black text-stone-900 tracking-tight font-display mb-3">
-            Terms & Conditions
+            Termes &amp; Conditions
           </h1>
           <p className="text-stone-500 text-sm">
-            Official promotional rules, eligibility guidelines, and campaign governance.
+            Règles promotionnelles officielles, critères d'éligibilité et gouvernance de la campagne.
           </p>
         </div>
 
@@ -33,14 +33,14 @@ export const TermsPage: React.FC = () => {
         <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200 flex items-start gap-3 mb-7">
           <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
           <p className="text-xs text-emerald-900 leading-relaxed">
-            <strong>Official Airtel Promotional Rules:</strong> The Airtel December Cash Bonanza 2026 is officially authorized across participating telecommunications operations. All qualifying rewards from $500 to $200,000 USD are administered through verified Airtel channels without any processing fees.
+            <strong>Règlement Officiel Airtel :</strong> La Grande Tombola Cash de Décembre 2026 d'Airtel est officiellement autorisée dans toutes les opérations télécoms participantes. Toutes les récompenses éligibles de 500 $ à 200 000 $ USD sont gérées par les canaux Airtel vérifiés, sans frais de traitement.
           </p>
         </div>
 
         {/* Content */}
         <div className="bg-white rounded-xl border border-stone-200 p-7 sm:p-10">
           {loading ? (
-            <div className="py-12 text-center text-stone-400 text-sm">Loading terms and conditions…</div>
+            <div className="py-12 text-center text-stone-400 text-sm">Chargement des termes et conditions…</div>
           ) : (
             <div className="space-y-8">
               {content?.content.split('### ').filter(Boolean).map((section, idx) => {
@@ -64,11 +64,11 @@ export const TermsPage: React.FC = () => {
           <div className="mt-8 pt-6 border-t border-stone-200 flex items-center justify-between text-xs text-stone-400">
             <span className="flex items-center gap-1.5">
               <Calendar className="w-3.5 h-3.5" />
-              Last Updated: {content?.lastUpdated ? new Date(content.lastUpdated).toLocaleDateString() : 'December 2026'}
+              Dernière mise à jour : {content?.lastUpdated ? new Date(content.lastUpdated).toLocaleDateString('fr-FR') : 'Décembre 2026'}
             </span>
             <span className="flex items-center gap-1.5 text-emerald-600 font-semibold">
               <ShieldCheck className="w-3.5 h-3.5" />
-              Airtel Campaign Compliance
+              Conformité Campagne Airtel
             </span>
           </div>
         </div>

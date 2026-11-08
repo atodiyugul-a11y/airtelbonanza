@@ -18,7 +18,7 @@ export const AdminLoginPage: React.FC = () => {
     try {
       await login(username, password);
     } catch (err: any) {
-      setError(err.message || 'Authentication failed. Please verify credentials.');
+      setError(err.message || "Échec de l'authentification. Veuillez vérifier vos identifiants.");
     } finally {
       setSubmitting(false);
     }
@@ -40,10 +40,10 @@ export const AdminLoginPage: React.FC = () => {
           <span className="text-xs font-bold uppercase tracking-wider text-gold bg-stone-900 px-2 py-0.5 rounded border border-stone-800">2026</span>
         </div>
         <h2 className="text-2xl font-black text-white uppercase tracking-tight font-display">
-          Campaign Administration
+          Administration de la Campagne
         </h2>
         <p className="mt-1 text-xs text-stone-400">
-          Protected Control Center for Airtel December Cash Bonanza 2026
+          Centre de Contrôle Sécurisé – Grande Tombola Cash Airtel de Décembre 2026
         </p>
       </div>
 
@@ -60,7 +60,7 @@ export const AdminLoginPage: React.FC = () => {
           <form className="space-y-5" onSubmit={handleSubmit}>
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-stone-300 mb-1.5">
-                Administrator Username
+                Nom d'utilisateur Administrateur
               </label>
               <div className="relative rounded-xl shadow-sm">
                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-stone-400">
@@ -79,7 +79,7 @@ export const AdminLoginPage: React.FC = () => {
 
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-stone-300 mb-1.5">
-                Password
+                Mot de Passe
               </label>
               <div className="relative rounded-xl shadow-sm">
                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-stone-400">
@@ -99,10 +99,10 @@ export const AdminLoginPage: React.FC = () => {
             <div className="p-3 rounded-xl bg-stone-950/60 border border-stone-800/80 text-[11px] text-stone-400">
               <p className="font-semibold text-stone-300 mb-1 flex items-center gap-1">
                 <Sparkles className="w-3 h-3 text-gold" />
-                Administrator Access:
+                Accès Administrateur :
               </p>
-              <p>Username: <code className="text-gold">admin</code></p>
-              <p>Password: <code className="text-gold">AirtelBonanza2026!</code></p>
+              <p>Utilisateur : <code className="text-gold">admin</code></p>
+              <p>Mot de passe : <code className="text-gold">AirtelBonanza2026!</code></p>
             </div>
 
             <button
@@ -110,7 +110,7 @@ export const AdminLoginPage: React.FC = () => {
               disabled={submitting}
               className="w-full py-3.5 px-4 rounded-xl font-black text-xs uppercase tracking-wider bg-airtel-red hover:bg-airtel-darkred text-white shadow-festive transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50"
             >
-              <span>{submitting ? 'Authenticating...' : 'Sign In To Dashboard'}</span>
+              <span>{submitting ? 'Connexion en cours...' : 'Se Connecter au Tableau de Bord'}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </form>
@@ -120,7 +120,7 @@ export const AdminLoginPage: React.FC = () => {
               to="/"
               className="text-xs text-stone-400 hover:text-white transition flex items-center justify-center gap-1"
             >
-              <span>← Back to Campaign Public View</span>
+              <span>← Retour à la Vue Publique de la Campagne</span>
             </Link>
           </div>
 
@@ -129,4 +129,3 @@ export const AdminLoginPage: React.FC = () => {
     </div>
   );
 };
-

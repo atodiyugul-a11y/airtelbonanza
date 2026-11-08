@@ -6,20 +6,20 @@ export const HowItWorksPreview: React.FC = () => {
   const steps = [
     {
       number: '01',
-      title: 'Discover the Promotion',
-      description: 'Explore the campaign reward categories, timeline, and official terms across authorized Airtel channels.',
+      title: 'Découvrir la Promotion',
+      description: "Explorez les catégories de récompenses, le calendrier et les conditions officielles de la campagne à travers les canaux autorisés d'Airtel.",
       icon: <Search className="w-6 h-6 text-airtel-red" />,
     },
     {
       number: '02',
-      title: 'Review Participation Requirements',
-      description: 'Read the official regional eligibility criteria, compliance terms, and guidelines published on airtel.com.',
+      title: 'Consulter les Conditions Officielles',
+      description: "Lisez les critères d'éligibilité régionaux, les conditions de conformité et les directives publiées sur airtel.com.",
       icon: <FileText className="w-6 h-6 text-airtel-red" />,
     },
     {
       number: '03',
-      title: 'Follow the Authorized Process',
-      description: 'Participate through official Airtel platforms and monitor the verified winners section for confirmed results.',
+      title: 'Suivre le Processus Autorisé',
+      description: 'Participez via les plateformes officielles Airtel et consultez la section des gagnants vérifiés pour les résultats confirmés.',
       icon: <CheckCircle2 className="w-6 h-6 text-airtel-red" />,
     },
   ];
@@ -34,10 +34,10 @@ export const HowItWorksPreview: React.FC = () => {
             Simple & Transparent
           </p>
           <h2 className="text-3xl sm:text-4xl font-black text-stone-900 tracking-tight font-display mb-4">
-            How the Campaign Works
+            Comment Fonctionne la Campagne
           </h2>
           <p className="text-stone-500 text-sm leading-relaxed">
-            Three straightforward steps to understand the December Cash Bonanza.
+            Trois étapes simples pour comprendre la Grande Tombola Cash de Décembre.
           </p>
         </div>
 
@@ -69,9 +69,9 @@ export const HowItWorksPreview: React.FC = () => {
               <ShieldAlert className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-white mb-1">Consumer Protection Notice</h4>
+              <h4 className="text-sm font-bold text-white mb-1">Avertissement de Protection du Consommateur</h4>
               <p className="text-xs text-stone-400 leading-relaxed max-w-xl">
-                Airtel will <strong className="text-white">never</strong> ask for your Airtel Money PIN, OTP codes, or passwords. Never pay any agent fee to claim a prize. Official participation details are available exclusively through authorized Airtel channels.
+                Airtel ne vous demandera <strong className="text-white">jamais</strong> votre code PIN Airtel Money, vos codes OTP ou vos mots de passe. Ne payez jamais de frais à un agent pour recevoir un prix. Les détails officiels de participation sont disponibles exclusivement via les canaux autorisés Airtel.
               </p>
             </div>
           </div>
@@ -79,7 +79,7 @@ export const HowItWorksPreview: React.FC = () => {
             to="/how-it-works"
             className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-xs font-semibold uppercase tracking-wider bg-white text-stone-900 hover:bg-gold transition-colors duration-150"
           >
-            Full Guide
+            Guide Complet
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>

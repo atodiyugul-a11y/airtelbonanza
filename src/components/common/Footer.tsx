@@ -17,11 +17,11 @@ export const Footer: React.FC = () => {
                 airtel
               </span>
               <span className="text-xs font-semibold uppercase tracking-wider text-stone-300 block mt-0.5">
-                December Cash Bonanza 2026
+                Grande Tombola de Décembre 2026
               </span>
             </div>
             <p className="text-xs text-stone-500 leading-relaxed">
-              A December cash rewards campaign featuring instant, daily, weekly, and grand prize categories starting from $500 up to $200,000 USD.
+              Une campagne de récompenses cash de décembre proposant des catégories instantanées, quotidiennes, hebdomadaires et un grand prix de 500 $ à 200 000 $ USD.
             </p>
             <a
               href="https://www.airtel.com/"
@@ -36,24 +36,24 @@ export const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h5 className="text-xs font-bold uppercase tracking-wider text-white mb-4">Campaign</h5>
+            <h5 className="text-xs font-bold uppercase tracking-wider text-white mb-4">Campagne</h5>
             <ul className="space-y-2.5 text-xs">
-              <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
-              <li><Link to="/rewards" className="hover:text-white transition-colors">Cash Rewards</Link></li>
-              <li><Link to="/how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
-              <li><Link to="/winners" className="hover:text-white transition-colors">Verified Winners</Link></li>
+              <li><Link to="/" className="hover:text-white transition-colors">Accueil</Link></li>
+              <li><Link to="/rewards" className="hover:text-white transition-colors">Récompenses Cash</Link></li>
+              <li><Link to="/how-it-works" className="hover:text-white transition-colors">Comment Participer</Link></li>
+              <li><Link to="/winners" className="hover:text-white transition-colors">Gagnants Vérifiés</Link></li>
               <li><Link to="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
             </ul>
           </div>
 
           {/* Legal */}
           <div>
-            <h5 className="text-xs font-bold uppercase tracking-wider text-white mb-4">Legal</h5>
+            <h5 className="text-xs font-bold uppercase tracking-wider text-white mb-4">Légal</h5>
             <ul className="space-y-2.5 text-xs">
-              <li><Link to="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link></li>
-              <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/how-it-works#safety" className="hover:text-white transition-colors">Anti-Fraud Guidelines</Link></li>
-              <li><Link to="/winners#verification" className="hover:text-white transition-colors">Winner Verification</Link></li>
+              <li><Link to="/terms" className="hover:text-white transition-colors">Conditions Générales</Link></li>
+              <li><Link to="/privacy" className="hover:text-white transition-colors">Politique de Confidentialité</Link></li>
+              <li><Link to="/how-it-works#safety" className="hover:text-white transition-colors">Guide Anti-Fraude</Link></li>
+              <li><Link to="/winners#verification" className="hover:text-white transition-colors">Vérification des Gagnants</Link></li>
             </ul>
           </div>
 
@@ -71,7 +71,7 @@ export const Footer: React.FC = () => {
               </p>
               <p className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-stone-500 flex-shrink-0" />
-                Dial 100 on your Airtel line
+                Composez le 100 depuis votre ligne Airtel
               </p>
             </div>
           </div>
@@ -82,14 +82,14 @@ export const Footer: React.FC = () => {
           <div className="flex items-start gap-3 p-4 rounded-lg bg-stone-900 border border-stone-800">
             <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
             <p className="text-xs text-stone-400 leading-relaxed">
-              <strong className="text-stone-200">Security Notice:</strong>{' '}
-              Airtel will <strong className="text-white">never</strong> request your Airtel Money PIN, banking passwords, or OTP codes. We will never charge fees to claim prizes. All payouts ($500 to $200,000 USD) are disbursed directly through authorized Airtel channels.
+              <strong className="text-stone-200">Avertissement de Sécurité :</strong>{' '}
+              Airtel ne vous demandera <strong className="text-white">jamais</strong> votre code PIN Airtel Money, vos mots de passe bancaires ou vos codes OTP. Aucun frais ne vous sera demandé pour recevoir un prix. Tous les versements (500 $ à 200 000 $ USD) sont effectués directement via les canaux officiels agréés d'Airtel.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-between text-xs text-stone-600 gap-3">
-            <p>© 2026 Airtel December Cash Bonanza. All rights reserved.</p>
-            <p className="text-stone-700">Official Airtel Telecommunications Promotional Campaign</p>
+            <p>© 2026 Airtel Grande Tombola de Décembre. Tous droits réservés.</p>
+            <p className="text-stone-700">Campagne Promotionnelle Officielle de Télécommunications Airtel</p>
           </div>
         </div>
 

@@ -9,8 +9,8 @@ export const HeroSection: React.FC = () => {
   const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
 
-  const headline = campaign?.headline || "THIS DECEMBER, YOUR LUCK COULD PAY YOU!";
-  const subheadline = campaign?.subheadline || "Celebrate the festive season with exciting opportunities to win amazing cash rewards. Discover instant prizes, daily surprises, weekly winners and a spectacular grand prize.";
+  const headline = campaign?.headline || "CE DÉCEMBRE, VOTRE CHANCE POURRAIT VOUS RAPPORTER GROS !";
+  const subheadline = campaign?.subheadline || "Célébrez les fêtes de fin d'année avec des opportunités uniques de remporter des prix exceptionnels en espèces. Découvrez des récompenses instantanées, des surprises quotidiennes, des tirages hebdomadaires et un grand jackpot spectaculaire.";
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-airtel-red via-[#c40000] to-[#8b0000] text-white">
@@ -25,7 +25,7 @@ export const HeroSection: React.FC = () => {
 
             {/* Eyebrow */}
             <p className="text-sm font-semibold uppercase tracking-widest text-rose-200">
-              Official Airtel December Campaign · 2026
+              Campagne Officielle Airtel Décembre · 2026
             </p>
 
             {/* Headline */}
@@ -45,35 +45,35 @@ export const HeroSection: React.FC = () => {
                 onClick={() => setModalOpen(true)}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-md font-bold text-sm uppercase tracking-wider bg-white text-airtel-red hover:bg-gold hover:text-stone-900 transition-colors duration-200 shadow-lg"
               >
-                Explore Cash Rewards
+                Explorer les Récompenses Cash
                 <ArrowRight className="w-4 h-4" />
               </button>
               <Link
                 to="/how-it-works"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md font-semibold text-sm uppercase tracking-wider bg-transparent border border-white/40 text-white hover:bg-white/10 hover:border-white/60 transition-all duration-200"
               >
-                How To Participate
+                Comment Participer
               </Link>
             </div>
 
             {/* Trust line */}
             <div className="flex items-center justify-center lg:justify-start gap-2 text-xs text-rose-200/80 pt-1">
               <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-              <span>Official Promotion · USD Denominated Rewards · No Participation Fee</span>
+              <span>Promotion Officielle · Récompenses en USD · Aucun Frais de Participation</span>
             </div>
           </div>
 
           {/* Right: Prize Summary Card */}
           <div className="flex justify-center lg:justify-end">
             <div className="w-full max-w-sm rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 p-8 space-y-5 shadow-2xl">
-              <p className="text-xs font-bold uppercase tracking-widest text-rose-200">Prize Categories</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-rose-200">Catégories de Prix</p>
 
               <div className="space-y-3">
                 {[
-                  { label: 'Instant Cash', range: '$500 – $1,000' },
-                  { label: 'Daily Cash', range: '$1,000 – $5,000' },
-                  { label: 'Weekly Cash', range: '$5,000 – $10,000' },
-                  { label: 'Grand Prize', range: '$50,000 – $200,000', highlight: true },
+                  { label: 'Cash Instantané', range: '500 $ – 1 000 $' },
+                  { label: 'Cash Quotidien', range: '1 000 $ – 5 000 $' },
+                  { label: 'Cash Hebdomadaire', range: '5 000 $ – 10 000 $' },
+                  { label: 'Grand Prix de Noël', range: '50 000 $ – 200 000 $', highlight: true },
                 ].map((item) => (
                   <div
                     key={item.label}
@@ -94,7 +94,7 @@ export const HeroSection: React.FC = () => {
               </div>
 
               <p className="text-[11px] text-rose-200/70 leading-relaxed pt-1">
-                All prizes in USD. Subject to official campaign terms and regional eligibility.
+                Tous les prix sont en USD. Soumis aux conditions officielles et à l'éligibilité régionale.
               </p>
             </div>
           </div>
@@ -106,7 +106,7 @@ export const HeroSection: React.FC = () => {
       <ExploreRewardsModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        categoryTitle="All Cash Rewards"
+        categoryTitle="Toutes les Récompenses Cash"
         onSuccess={() => {
           setTimeout(() => {
             setModalOpen(false);

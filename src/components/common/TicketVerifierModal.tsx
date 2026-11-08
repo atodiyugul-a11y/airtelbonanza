@@ -60,10 +60,10 @@ export const TicketVerifierModal: React.FC<Props> = ({ isOpen, onClose }) => {
             <ShieldCheck className="w-7 h-7" />
           </div>
           <h3 className="text-xl sm:text-2xl font-black uppercase text-stone-900 font-display">
-            Verify Winner Reference Code
+            Vérifier le Code de Référence Gagnant
           </h3>
           <p className="text-xs text-stone-500 max-w-sm mx-auto">
-            Check any announcement reference number against the authorized campaign registry.
+            Vérifiez n'importe quel numéro de référence d'annonce auprès du registre officiel de la campagne.
           </p>
         </div>
 
@@ -76,7 +76,7 @@ export const TicketVerifierModal: React.FC<Props> = ({ isOpen, onClose }) => {
               required
               value={refInput}
               onChange={(e) => setRefInput(e.target.value)}
-              placeholder="e.g. BONANZA-KE-8492 or BONANZA-ZW-0012"
+              placeholder="ex. BONANZA-KE-8492 ou BONANZA-ZW-0012"
               className="w-full pl-11 pr-4 py-3 bg-stone-50 border border-stone-200 rounded-2xl text-xs sm:text-sm font-mono focus:outline-none focus:ring-2 focus:ring-airtel-red"
             />
           </div>
@@ -86,13 +86,13 @@ export const TicketVerifierModal: React.FC<Props> = ({ isOpen, onClose }) => {
             disabled={searching}
             className="w-full py-3 px-4 rounded-xl bg-airtel-red hover:bg-airtel-darkred text-white font-black text-xs uppercase tracking-wider shadow-sm transition disabled:opacity-50 flex items-center justify-center gap-2"
           >
-            <span>{searching ? 'Checking Registry...' : 'Verify Reference Code'}</span>
+            <span>{searching ? 'Vérification dans le registre...' : 'Vérifier le Code de Référence'}</span>
           </button>
         </form>
 
         {/* Quick Demo Samples */}
         <div className="mb-6 p-3 rounded-xl bg-stone-50 border border-stone-100 text-[11px] text-stone-500">
-          <span className="font-bold text-stone-700 block mb-1">Try Sample Demo Reference Codes:</span>
+          <span className="font-bold text-stone-700 block mb-1">Exemples de codes de référence à tester :</span>
           <div className="flex flex-wrap gap-1.5">
             {['BONANZA-KE-8492', 'BONANZA-SN-7721', 'BONANZA-ZW-0012'].map((code) => (
               <button
@@ -114,42 +114,42 @@ export const TicketVerifierModal: React.FC<Props> = ({ isOpen, onClose }) => {
               <div className="p-5 rounded-2xl bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 text-stone-800 space-y-3">
                 <div className="flex items-center gap-2 text-emerald-700 font-black text-sm uppercase tracking-wide">
                   <CheckCircle className="w-5 h-5" />
-                  <span>Authenticated Winner Record Found</span>
+                  <span>Enregistrement de Gagnant Authentifié Trouvé</span>
                 </div>
 
                 <div className="bg-white/80 p-4 rounded-xl border border-emerald-100 space-y-2 text-xs">
                   <div className="flex justify-between items-center">
-                    <span className="text-stone-500">Winner:</span>
+                    <span className="text-stone-500">Gagnant :</span>
                     <strong className="text-stone-900 text-sm">{result.winner.name}</strong>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-stone-500">Country:</span>
+                    <span className="text-stone-500">Pays :</span>
                     <strong className="text-stone-900">{result.winner.country}</strong>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-stone-500">Category:</span>
+                    <span className="text-stone-500">Catégorie :</span>
                     <strong className="text-stone-900">{result.winner.prizeCategory}</strong>
                   </div>
                   <div className="flex justify-between items-center pt-2 border-t border-emerald-100">
-                    <span className="text-stone-500 font-bold">Prize Amount:</span>
+                    <span className="text-stone-500 font-bold">Montant du Prix :</span>
                     <span className="text-base font-black text-airtel-red">
-                      ${result.winner.prizeAmount.toLocaleString()} USD
+                      {result.winner.prizeAmount.toLocaleString()} $ USD
                     </span>
                   </div>
                 </div>
 
                 <p className="text-[11px] text-emerald-800">
-                  ✔ <strong>Security Note:</strong> Official customer care will complete prize distribution without asking for your Airtel Money PIN.
+                  ✔ <strong>Note de sécurité :</strong> Le service client officiel effectue le versement du prix sans jamais vous demander votre code secret PIN Airtel Money.
                 </p>
               </div>
             ) : (
               <div className="p-5 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 space-y-2">
                 <div className="flex items-center gap-2 font-bold text-sm">
                   <AlertCircle className="w-5 h-5 text-amber-600" />
-                  <span>No Matching Verified Record</span>
+                  <span>Aucun Enregistrement Vérifié Correspondant</span>
                 </div>
                 <p className="text-xs text-amber-800 leading-relaxed">
-                  The reference code entered was not found in the verified registry. Please check for typos or beware of unauthorized spoof messages.
+                  Le code de référence saisi n'a pas été trouvé dans le registre officiel. Veuillez vérifier l'orthographe ou vous méfier des messages frauduleux non autorisés.
                 </p>
               </div>
             )}

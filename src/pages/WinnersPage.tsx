@@ -26,11 +26,11 @@ export const WinnersPage: React.FC = () => {
   useEffect(() => { loadWinners(); }, [selectedCategory, searchQuery]);
 
   const categories = [
-    { label: 'All Tiers', value: 'all' },
-    { label: 'Instant ($500–$1,000)', value: 'Instant Cash Rewards' },
-    { label: 'Daily ($1,000–$5,000)', value: 'Daily Cash Rewards' },
-    { label: 'Weekly ($5,000–$10,000)', value: 'Weekly Cash Rewards' },
-    { label: 'Grand Prize', value: 'Grand Prize' },
+    { label: 'Tous les Paliers', value: 'all' },
+    { label: 'Instantané (500–1 000 $)', value: 'Récompenses Cash Instantanées' },
+    { label: 'Quotidien (1 000–5 000 $)', value: 'Récompenses Cash Quotidiennes' },
+    { label: 'Hebdomadaire (5 000–10 000 $)', value: 'Récompenses Cash Hebdomadaires' },
+    { label: 'Grand Prix de Noël', value: 'Grand Prix de Noël' },
   ];
 
   return (
@@ -40,12 +40,12 @@ export const WinnersPage: React.FC = () => {
         {/* Page Header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-airtel-red mb-2">Official Showcase</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-airtel-red mb-2">Palmarès Officiel</p>
             <h1 className="text-3xl sm:text-4xl font-black text-stone-900 tracking-tight font-display">
-              Celebrating Our Winners
+              Célébrons Nos Gagnants
             </h1>
             <p className="text-stone-500 text-sm mt-2 max-w-xl leading-relaxed">
-              Only officially verified and authenticated winners are published following strict audit checks.
+              Seuls les gagnants officiellement vérifiés et authentifiés sont publiés après des contrôles d'audit stricts.
             </p>
           </div>
           <button
@@ -53,7 +53,7 @@ export const WinnersPage: React.FC = () => {
             className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold bg-stone-900 hover:bg-airtel-red text-white transition-colors flex-shrink-0"
           >
             <ShieldCheck className="w-3.5 h-3.5" />
-            Verify Announcement Code
+            Vérifier un Code d'Annonce
           </button>
         </div>
 
@@ -66,7 +66,7 @@ export const WinnersPage: React.FC = () => {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search by name, country, or reference…"
+                placeholder="Rechercher par nom, pays ou référence…"
                 className="w-full pl-10 pr-4 py-2.5 rounded-lg bg-stone-50 border border-stone-200 focus:outline-none focus:ring-2 focus:ring-airtel-red text-sm"
               />
             </div>
@@ -105,7 +105,7 @@ export const WinnersPage: React.FC = () => {
 
         {/* Winners Grid */}
         {loading ? (
-          <div className="text-center py-16 text-stone-400 text-sm">Loading winners…</div>
+          <div className="text-center py-16 text-stone-400 text-sm">Chargement des gagnants…</div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
             {winners.map((winner) => (
@@ -117,7 +117,7 @@ export const WinnersPage: React.FC = () => {
                   <div className="flex items-center justify-between mb-4">
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
                       <CheckCircle className="w-3 h-3" />
-                      Verified
+                      Vérifié
                     </span>
                     <span className="text-[11px] text-stone-400">{winner.prizeCategory}</span>
                   </div>
@@ -134,9 +134,9 @@ export const WinnersPage: React.FC = () => {
 
                   <div className="flex items-center justify-between px-4 py-3 rounded-lg bg-stone-50 border border-stone-200">
                     <div>
-                      <span className="block text-[10px] font-semibold uppercase tracking-wide text-stone-400">Awarded</span>
+                      <span className="block text-[10px] font-semibold uppercase tracking-wide text-stone-400">Prix Attribué</span>
                       <span className="text-lg font-black text-airtel-red font-display">
-                        ${winner.prizeAmount.toLocaleString()} USD
+                        {winner.prizeAmount.toLocaleString()} $ USD
                       </span>
                     </div>
                     <Trophy className="w-6 h-6 text-gold" />
@@ -150,7 +150,7 @@ export const WinnersPage: React.FC = () => {
                   </span>
                   <span className="flex items-center gap-1 text-emerald-600 font-semibold">
                     <UserCheck className="w-3.5 h-3.5" />
-                    Confirmed
+                    Confirmé
                   </span>
                 </div>
               </div>
@@ -159,12 +159,12 @@ export const WinnersPage: React.FC = () => {
             {winners.length === 0 && !loading && (
               <div className="col-span-full py-16 text-center bg-white rounded-xl border border-stone-200">
                 <Trophy className="w-10 h-10 text-stone-200 mx-auto mb-3" />
-                <p className="text-sm font-semibold text-stone-500">No winners match your criteria</p>
+                <p className="text-sm font-semibold text-stone-500">Aucun gagnant ne correspond à vos critères</p>
                 <button
                   onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}
                   className="mt-3 text-xs text-airtel-red font-semibold hover:underline"
                 >
-                  Reset filters
+                  Réinitialiser les filtres
                 </button>
               </div>
             )}
@@ -178,9 +178,9 @@ export const WinnersPage: React.FC = () => {
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-base font-bold text-stone-900 mb-2">Official Verification Policy</h3>
+              <h3 className="text-base font-bold text-stone-900 mb-2">Politique de Vérification Officielle</h3>
               <p className="text-sm text-stone-500 leading-relaxed">
-                Only verified and authorized winners are published. Every entry is audited against subscriber account standing, campaign validation terms, and anti-fraud checks. Airtel does not recognize unverified third-party claims.
+                Seuls les gagnants vérifiés et autorisés sont publiés. Chaque entrée est auditée en fonction du statut d'abonné, des conditions de validation de la campagne et des contrôles anti-fraude. Airtel ne reconnaît aucune réclamation tierce non vérifiée.
               </p>
             </div>
           </div>

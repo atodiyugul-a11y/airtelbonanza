@@ -38,13 +38,13 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ isFullPage = false }) =>
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
           <p className="text-xs font-bold uppercase tracking-widest text-airtel-red mb-3">
-            Help & Information
+            Aide & Information
           </p>
           <h2 className="text-3xl sm:text-4xl font-black text-stone-900 tracking-tight font-display mb-4">
-            Frequently Asked Questions
+            Questions Fréquemment Posées
           </h2>
           <p className="text-stone-500 text-sm leading-relaxed">
-            Everything you need to know about the Airtel December Cash Bonanza 2026, prize distribution schedules, and security standards.
+            Tout ce que vous devez savoir sur la Grande Tombola Cash de Décembre 2026 d'Airtel, les calendriers de distribution des prix et les normes de sécurité.
           </p>
         </div>
 
@@ -57,18 +57,18 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ isFullPage = false }) =>
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search questions (e.g. cash prizes, fees, verification)..."
+                placeholder="Rechercher des questions (ex. prix, frais, vérification)..."
                 className="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-white border border-stone-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-airtel-red text-sm"
               />
             </div>
 
             <div className="flex items-center gap-2 overflow-x-auto pb-2 text-xs font-semibold">
               {[
-                { label: 'All Questions', value: 'all' },
-                { label: 'General', value: 'general' },
-                { label: 'Prizes ($ USD)', value: 'prizes' },
+                { label: 'Toutes les Questions', value: 'all' },
+                { label: 'Général', value: 'general' },
+                { label: 'Prix ($ USD)', value: 'prizes' },
                 { label: 'Participation', value: 'participation' },
-                { label: 'Verification & Safety', value: 'verification' },
+                { label: 'Vérification & Sécurité', value: 'verification' },
                 { label: 'Support', value: 'support' },
               ].map((tab) => (
                 <button
@@ -131,12 +131,12 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ isFullPage = false }) =>
           {filteredFAQs.length === 0 && (
             <div className="text-center py-12 bg-white rounded-2xl border border-stone-200 p-8">
               <HelpCircle className="w-10 h-10 text-stone-400 mx-auto mb-2" />
-              <p className="text-stone-600 font-semibold">No questions found matching your search.</p>
+              <p className="text-stone-600 font-semibold">Aucune question trouvée correspondant à votre recherche.</p>
               <button
                 onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}
                 className="mt-3 text-xs text-airtel-red font-bold hover:underline"
               >
-                Reset filters
+                Réinitialiser les filtres
               </button>
             </div>
           )}
@@ -146,7 +146,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ isFullPage = false }) =>
         <div className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-red-50 to-amber-50 border border-red-200 flex items-start gap-4">
           <ShieldCheck className="w-6 h-6 text-airtel-red flex-shrink-0 mt-0.5" />
           <div className="text-xs sm:text-sm text-stone-800">
-            <strong>Security Reminder:</strong> Official Airtel representatives will never ask for your passwords, Airtel Money PINs, or One-Time Passwords (OTPs). There are strictly no participation fees or payment charges required.
+            <strong>Rappel de Sécurité :</strong> Les représentants officiels d'Airtel ne vous demanderont jamais vos mots de passe, codes PIN Airtel Money ou codes de validation OTP reçus par SMS. Aucun frais de participation ni charge de paiement n'est requis.
           </div>
         </div>
 

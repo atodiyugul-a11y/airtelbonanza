@@ -6,34 +6,34 @@ export const HowItWorksPage: React.FC = () => {
   const steps = [
     {
       step: '01',
-      title: 'Discover the Promotion',
-      desc: 'Understand the campaign purpose, prize structure, and schedule.',
+      title: 'Découvrir la Promotion',
+      desc: "Comprendre l'objectif de la campagne, la structure des prix et le calendrier.",
       details: [
-        'Four reward tiers from $500 up to $200,000 USD — instant, daily, weekly, and grand prize.',
-        'Prizes are announced throughout December across all participating Airtel networks.',
-        'Familiarize yourself with this portal and authorized Airtel communications channels.',
+        "Quatre paliers de récompenses de 500 $ à 200 000 $ USD — instantané, quotidien, hebdomadaire et grand prix.",
+        "Les prix sont annoncés tout au long de décembre sur tous les réseaux Airtel participants.",
+        "Familiarisez-vous avec ce portail et les canaux de communication officiels d'Airtel.",
       ],
       icon: <Search className="w-6 h-6 text-airtel-red" />,
     },
     {
       step: '02',
-      title: 'Review Participation Requirements',
-      desc: 'Check authorized eligibility criteria and regional regulatory guidelines.',
+      title: 'Consulter les Conditions Officielles',
+      desc: "Vérifier les critères d'éligibilité agréés et les directives réglementaires régionales.",
       details: [
-        'Review official participation terms published on verified Airtel platforms only.',
-        'Ensure compliance with local telecommunications subscriber regulations.',
-        'No upfront fees or account charges are required to qualify or claim any prize.',
+        "Consultez les conditions de participation officielles publiées exclusivement sur les plateformes vérifiées d'Airtel.",
+        "Assurez-vous de respecter les règlements locaux des abonnés aux télécommunications.",
+        "Aucun frais préalable ni charge de compte n'est requis pour être éligible ou réclamer un prix.",
       ],
       icon: <FileText className="w-6 h-6 text-airtel-red" />,
     },
     {
       step: '03',
-      title: 'Follow the Authorized Process',
-      desc: 'Participate through approved channels and check authenticated results.',
+      title: 'Suivre le Processus Autorisé',
+      desc: "Participez via les canaux officiellement approuvés et consultez les résultats authentifiés.",
       details: [
-        'Engage only through officially sanctioned Airtel processes.',
-        'Winners are announced and grand prize is disbursed on December 25, 2026.',
-        'Await official contact from recognized Airtel customer support — never from third parties.',
+        "Interagissez uniquement via les processus Airtel officiellement autorisés.",
+        "Les gagnants sont annoncés et le grand prix est distribué le 25 Décembre 2026.",
+        "Attendez le contact officiel d'un support client Airtel reconnu — jamais de tiers.",
       ],
       icon: <CheckCircle2 className="w-6 h-6 text-airtel-red" />,
     },
@@ -45,12 +45,12 @@ export const HowItWorksPage: React.FC = () => {
 
         {/* Page Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <p className="text-xs font-bold uppercase tracking-widest text-airtel-red mb-3">Official Guide</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-airtel-red mb-3">Guide Officiel</p>
           <h1 className="text-3xl sm:text-4xl font-black text-stone-900 tracking-tight font-display mb-4">
-            How It Works
+            Comment Participer
           </h1>
           <p className="text-stone-500 text-sm leading-relaxed">
-            The Airtel December Cash Bonanza 2026 operates on a simple, transparent three-step journey.
+            La Grande Tombola Cash de Décembre 2026 d&apos;Airtel fonctionne selon un parcours simple et transparent en trois étapes.
           </p>
         </div>
 
@@ -94,15 +94,15 @@ export const HowItWorksPage: React.FC = () => {
         <div id="safety" className="rounded-xl bg-stone-900 text-white p-7 sm:p-10 border border-stone-700">
           <div className="flex items-center gap-2 mb-5">
             <ShieldAlert className="w-5 h-5 text-red-400 flex-shrink-0" />
-            <h3 className="text-base font-bold text-white">Consumer Protection Notice</h3>
+            <h3 className="text-base font-bold text-white">Avertissement de Protection du Consommateur</h3>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm mb-7">
             {[
-              { bad: true, label: 'Never share your PIN', desc: 'Airtel will never ask for your Airtel Money PIN or ATM PIN.' },
-              { bad: true, label: 'Never share OTPs', desc: 'Do not disclose one-time passwords sent to your phone to anyone.' },
-              { bad: true, label: 'No upfront claim fees', desc: 'Authentic Airtel campaigns never require payment to release rewards.' },
-              { bad: false, label: 'Official channels only', desc: 'Only consult airtel.com or the Verified Winners page for results.' },
+              { bad: true, label: 'Ne partagez jamais votre PIN', desc: "Airtel ne vous demandera jamais votre code PIN Airtel Money ou votre code PIN bancaire." },
+              { bad: true, label: 'Ne partagez jamais les OTP', desc: "Ne divulguez à personne les codes à usage unique envoyés sur votre téléphone." },
+              { bad: true, label: 'Aucun frais de réclamation', desc: "Les campagnes officielles d'Airtel ne nécessitent jamais de paiement pour débloquer les récompenses." },
+              { bad: false, label: 'Canaux officiels uniquement', desc: "Consultez uniquement airtel.com ou la page Gagnants Vérifiés pour les résultats." },
             ].map((item, i) => (
               <div key={i} className="bg-white/5 border border-white/10 rounded-lg p-4 space-y-1">
                 <span className={`font-semibold block text-sm ${item.bad ? 'text-red-400' : 'text-emerald-400'}`}>
@@ -118,7 +118,7 @@ export const HowItWorksPage: React.FC = () => {
               to="/winners"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white text-stone-900 font-semibold text-xs uppercase tracking-wider hover:bg-gold transition-colors"
             >
-              Check Verified Winners
+              Consulter les Gagnants Vérifiés
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <a
@@ -127,7 +127,7 @@ export const HowItWorksPage: React.FC = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold text-xs uppercase tracking-wider transition-colors border border-white/20"
             >
-              Official Airtel Website
+              Site Officiel Airtel
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>

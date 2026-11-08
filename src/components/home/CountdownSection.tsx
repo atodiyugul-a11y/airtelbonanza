@@ -41,7 +41,7 @@ export const CountdownSection: React.FC = () => {
     return () => clearInterval(timer);
   }, [closingDateStr]);
 
-  const formattedClosingDate = new Date(closingDateStr).toLocaleDateString('en-US', {
+  const formattedClosingDate = new Date(closingDateStr).toLocaleDateString('fr-FR', {
     month: 'long',
     day: 'numeric',
     year: 'numeric',
@@ -56,14 +56,14 @@ export const CountdownSection: React.FC = () => {
           <div className="text-center md:text-left space-y-1">
             <div className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-airtel-red">
               <Clock className="w-3.5 h-3.5" />
-              Campaign Window
+              Période de la Campagne
             </div>
             <h2 className="text-xl sm:text-2xl font-black text-stone-900 font-display">
-              {timeLeft.isEnded ? 'Campaign Concluded' : 'Christmas Day Grand Draw Closes In'}
+              {timeLeft.isEnded ? 'Campagne Terminée' : 'Clôture du Grand Tirage de Noël dans'}
             </h2>
             <p className="text-xs text-stone-400 flex items-center justify-center md:justify-start gap-1.5">
               <Calendar className="w-3.5 h-3.5" />
-              Campaign End & Grand Prize Disbursement: <strong className="text-stone-600 ml-1">December 25, 2026</strong>
+              Clôture de la Tombola & Distribution du Grand Prix : <strong className="text-stone-600 ml-1">25 Décembre 2026</strong>
             </p>
           </div>
 
@@ -72,17 +72,17 @@ export const CountdownSection: React.FC = () => {
             <div className="p-4 rounded-lg bg-amber-50 border border-amber-200 text-amber-800 flex items-center gap-3 w-full md:w-auto">
               <AlertCircle className="w-5 h-5 text-amber-500 flex-shrink-0" />
               <div>
-                <p className="font-semibold text-sm">The December Cash Bonanza 2026 has officially concluded.</p>
-                <p className="text-xs text-amber-700 mt-0.5">View the Winners section for all approved recipients.</p>
+                <p className="font-semibold text-sm">La Grande Tombola Cash de Décembre 2026 est officiellement terminée.</p>
+                <p className="text-xs text-amber-700 mt-0.5">Consultez la section Gagnants pour voir tous les bénéficiaires validés.</p>
               </div>
             </div>
           ) : (
             <div className="grid grid-cols-4 gap-3 w-full md:w-auto">
               {[
-                { label: 'Days', value: timeLeft.days },
-                { label: 'Hours', value: timeLeft.hours },
+                { label: 'Jours', value: timeLeft.days },
+                { label: 'Heures', value: timeLeft.hours },
                 { label: 'Minutes', value: timeLeft.minutes },
-                { label: 'Seconds', value: timeLeft.seconds },
+                { label: 'Secondes', value: timeLeft.seconds },
               ].map((item, idx) => (
                 <div
                   key={idx}

@@ -14,9 +14,9 @@ export const WinnersManagerTab: React.FC = () => {
 
   // Form State
   const [formName, setFormName] = useState('');
-  const [formCountry, setFormCountry] = useState('Kenya');
-  const [formCountryCode, setFormCountryCode] = useState('KE');
-  const [formCategory, setFormCategory] = useState('Daily Cash Rewards');
+  const [formCountry, setFormCountry] = useState('RD Congo');
+  const [formCountryCode, setFormCountryCode] = useState('CD');
+  const [formCategory, setFormCategory] = useState('Récompenses Cash Quotidiennes');
   const [formAmount, setFormAmount] = useState<number>(500);
   const [formDate, setFormDate] = useState(new Date().toISOString().split('T')[0]);
   const [formRef, setFormRef] = useState('');
@@ -40,7 +40,7 @@ export const WinnersManagerTab: React.FC = () => {
   }, []);
 
   const exportToCSV = () => {
-    const headers = ['ID', 'Name', 'Country', 'Country_Code', 'Category', 'Prize_Amount_USD', 'Date_Announced', 'Reference_Code', 'Status'];
+    const headers = ['ID', 'Nom', 'Pays', 'Code_Pays', 'Catégorie', 'Montant_Prix_USD', 'Date_Annonce', 'Code_Référence', 'Statut'];
     const rows = winners.map(w => [
       w.id,
       `"${w.name}"`,
@@ -50,13 +50,13 @@ export const WinnersManagerTab: React.FC = () => {
       w.prizeAmount,
       w.dateAnnounced,
       w.ticketOrRefNumber,
-      'Officially Verified'
+      'Officiellement Vérifié'
     ]);
     const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(e => e.join(','))].join('\n');
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement('a');
     link.setAttribute('href', encodedUri);
-    link.setAttribute('download', `Airtel_Bonanza_Winners_${new Date().toISOString().split('T')[0]}.csv`);
+    link.setAttribute('download', `Airtel_Bonanza_Gagnants_${new Date().toISOString().split('T')[0]}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -65,9 +65,9 @@ export const WinnersManagerTab: React.FC = () => {
   const openAddModal = () => {
     setEditingWinner(null);
     setFormName('');
-    setFormCountry('Kenya');
-    setFormCountryCode('KE');
-    setFormCategory('Daily Cash Rewards');
+    setFormCountry('RD Congo');
+    setFormCountryCode('CD');
+    setFormCategory('Récompenses Cash Quotidiennes');
     setFormAmount(500);
     setFormDate(new Date().toISOString().split('T')[0]);
     setFormRef(`BONANZA-${Math.floor(1000 + Math.random() * 9000)}`);
@@ -93,7 +93,7 @@ export const WinnersManagerTab: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formAmount < 100) {
-      setFeedback({ type: 'error', msg: 'Prize amount must be at least $100 USD.' });
+      setFeedback({ type: 'error', msg: 'Le montant du prix doit être d\'au moins 100 $ USD.' });
       return;
     }
 
@@ -113,7 +113,7 @@ export const WinnersManagerTab: React.FC = () => {
           isDemo: formIsDemo,
           verified: formVerified
         });
-        setFeedback({ type: 'success', msg: 'Winner details updated successfully.' });
+        setFeedback({ type: 'success', msg: 'Détails du gagnant mis à jour avec succès.' });
       } else {
         await addWinner({
           name: formName,
@@ -126,26 +126,26 @@ export const WinnersManagerTab: React.FC = () => {
           isDemo: formIsDemo,
           verified: formVerified
         });
-        setFeedback({ type: 'success', msg: 'New verified winner added.' });
+        setFeedback({ type: 'success', msg: 'Nouveau gagnant vérifié ajouté.' });
       }
 
       setModalOpen(false);
       loadWinners();
     } catch (err: any) {
-      setFeedback({ type: 'error', msg: err.message || 'Operation failed.' });
+      setFeedback({ type: 'error', msg: err.message || 'Opération échouée.' });
     } finally {
       setSaving(false);
     }
   };
 
   const handleDelete = async (id: string, name: string) => {
-    if (!window.confirm(`Are you sure you want to remove the winner entry for "${name}"?`)) return;
+    if (!window.confirm(`Voulez-vous vraiment supprimer l'entrée du gagnant "${name}" ?`)) return;
     try {
       await deleteWinner(id);
-      setFeedback({ type: 'success', msg: 'Winner removed successfully.' });
+      setFeedback({ type: 'success', msg: 'Gagnant supprimé avec succès.' });
       loadWinners();
     } catch (err: any) {
-      setFeedback({ type: 'error', msg: err.message || 'Failed to remove winner.' });
+      setFeedback({ type: 'error', msg: err.message || 'Échec de la suppression du gagnant.' });
     }
   };
 
@@ -163,10 +163,10 @@ export const WinnersManagerTab: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-stone-200">
         <div>
           <h2 className="text-xl font-black uppercase text-stone-900 font-display">
-            Verified Winners Management
+            Gestion des Gagnants Vérifiés
           </h2>
           <p className="text-xs text-stone-500 mt-1">
-            Publish, edit, and audit authorized winner announcements with USD cash rewards.
+            Publiez, modifiez et auditez les annonces de gagnants autorisés avec récompenses cash USD.
           </p>
         </div>
 
@@ -175,10 +175,10 @@ export const WinnersManagerTab: React.FC = () => {
             onClick={exportToCSV}
             type="button"
             className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-bold transition border border-stone-300"
-            title="Download winners spreadsheet for audit"
+            title="Télécharger le tableau des gagnants pour audit"
           >
             <Download className="w-4 h-4 text-stone-600" />
-            <span>Export CSV</span>
+            <span>Exporter CSV</span>
           </button>
 
           <button
@@ -187,7 +187,7 @@ export const WinnersManagerTab: React.FC = () => {
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-airtel-red hover:bg-airtel-darkred text-white text-xs font-black uppercase tracking-wider shadow-sm transition"
           >
             <Plus className="w-4 h-4" />
-            <span>Add Verified Winner</span>
+            <span>Ajouter un Gagnant</span>
           </button>
         </div>
       </div>
@@ -212,7 +212,7 @@ export const WinnersManagerTab: React.FC = () => {
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Filter winners by name, country, or reference code..."
+          placeholder="Filtrer les gagnants par nom, pays ou code de référence..."
           className="w-full pl-10 pr-4 py-2.5 bg-white border border-stone-200 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-airtel-red"
         />
       </div>
@@ -223,12 +223,12 @@ export const WinnersManagerTab: React.FC = () => {
           <table className="w-full text-left text-xs">
             <thead className="bg-stone-50 border-b border-stone-200 text-stone-500 uppercase font-bold tracking-wider text-[10px]">
               <tr>
-                <th className="py-3 px-4">Winner Name</th>
-                <th className="py-3 px-4">Country</th>
-                <th className="py-3 px-4">Category</th>
-                <th className="py-3 px-4">Prize Amount</th>
-                <th className="py-3 px-4">Date Announced</th>
-                <th className="py-3 px-4">Status</th>
+                <th className="py-3 px-4">Nom du Gagnant</th>
+                <th className="py-3 px-4">Pays</th>
+                <th className="py-3 px-4">Catégorie</th>
+                <th className="py-3 px-4">Montant du Prix</th>
+                <th className="py-3 px-4">Date d'Annonce</th>
+                <th className="py-3 px-4">Statut</th>
                 <th className="py-3 px-4 text-right">Actions</th>
               </tr>
             </thead>
@@ -251,21 +251,21 @@ export const WinnersManagerTab: React.FC = () => {
                   <td className="py-3.5 px-4 text-stone-500">{w.dateAnnounced}</td>
                   <td className="py-3.5 px-4">
                     <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black bg-emerald-100 text-emerald-800 border border-emerald-300">
-                      OFFICIAL &amp; LIVE
+                      OFFICIEL &amp; LIVE
                     </span>
                   </td>
                   <td className="py-3.5 px-4 text-right space-x-1">
                     <button
                       onClick={() => openEditModal(w)}
                       className="p-1.5 rounded-lg text-stone-500 hover:text-stone-900 hover:bg-stone-100"
-                      title="Edit Winner"
+                      title="Modifier le gagnant"
                     >
                       <Edit2 className="w-3.5 h-3.5" />
                     </button>
                     <button
                       onClick={() => handleDelete(w.id, w.name)}
                       className="p-1.5 rounded-lg text-stone-400 hover:text-red-600 hover:bg-red-50"
-                      title="Delete Winner"
+                      title="Supprimer le gagnant"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
@@ -275,7 +275,7 @@ export const WinnersManagerTab: React.FC = () => {
               {filtered.length === 0 && (
                 <tr>
                   <td colSpan={7} className="text-center py-8 text-stone-400">
-                    No winner entries found.
+                    Aucun gagnant trouvé.
                   </td>
                 </tr>
               )}
@@ -297,65 +297,65 @@ export const WinnersManagerTab: React.FC = () => {
 
             <h3 className="text-lg font-black uppercase text-stone-900 font-display mb-4 flex items-center gap-2">
               <Trophy className="w-5 h-5 text-gold" />
-              {editingWinner ? 'Edit Winner Record' : 'Add Verified Winner'}
+              {editingWinner ? 'Modifier le Gagnant' : 'Ajouter un Gagnant Vérifié'}
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-4 text-xs">
               <div>
-                <label className="block font-bold text-stone-700 mb-1">Winner Display Name</label>
+                <label className="block font-bold text-stone-700 mb-1">Nom d'Affichage du Gagnant</label>
                 <input
                   type="text"
                   required
                   value={formName}
                   onChange={(e) => setFormName(e.target.value)}
-                  placeholder="e.g. Amina Mwangi"
+                  placeholder="ex. Jean-Pierre Mukendi"
                   className="w-full px-3 py-2 border border-stone-200 rounded-xl"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-stone-700 mb-1">Country</label>
+                  <label className="block font-bold text-stone-700 mb-1">Pays</label>
                   <input
                     type="text"
                     required
                     value={formCountry}
                     onChange={(e) => setFormCountry(e.target.value)}
-                    placeholder="Kenya"
+                    placeholder="RD Congo"
                     className="w-full px-3 py-2 border border-stone-200 rounded-xl"
                   />
                 </div>
                 <div>
-                  <label className="block font-bold text-stone-700 mb-1">Country Code</label>
+                  <label className="block font-bold text-stone-700 mb-1">Code Pays</label>
                   <input
                     type="text"
                     required
                     maxLength={3}
                     value={formCountryCode}
                     onChange={(e) => setFormCountryCode(e.target.value.toUpperCase())}
-                    placeholder="KE"
+                    placeholder="CD"
                     className="w-full px-3 py-2 border border-stone-200 rounded-xl"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block font-bold text-stone-700 mb-1">Prize Category</label>
+                <label className="block font-bold text-stone-700 mb-1">Catégorie de Prix</label>
                 <select
                   value={formCategory}
                   onChange={(e) => setFormCategory(e.target.value)}
                   className="w-full px-3 py-2 border border-stone-200 rounded-xl"
                 >
-                  <option value="Instant Cash Rewards">Instant Cash Rewards</option>
-                  <option value="Daily Cash Rewards">Daily Cash Rewards</option>
-                  <option value="Weekly Cash Rewards">Weekly Cash Rewards</option>
-                  <option value="Grand Prize">Grand Prize</option>
+                  <option value="Récompenses Cash Instantanées">Récompenses Cash Instantanées</option>
+                  <option value="Récompenses Cash Quotidiennes">Récompenses Cash Quotidiennes</option>
+                  <option value="Récompenses Cash Hebdomadaires">Récompenses Cash Hebdomadaires</option>
+                  <option value="Grand Prix de Noël">Grand Prix de Noël</option>
                 </select>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-stone-700 mb-1">Prize ($ USD)</label>
+                  <label className="block font-bold text-stone-700 mb-1">Prix ($ USD)</label>
                   <input
                     type="number"
                     min={100}
@@ -366,7 +366,7 @@ export const WinnersManagerTab: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block font-bold text-stone-700 mb-1">Date Announced</label>
+                  <label className="block font-bold text-stone-700 mb-1">Date d'Annonce</label>
                   <input
                     type="date"
                     required
@@ -378,7 +378,7 @@ export const WinnersManagerTab: React.FC = () => {
               </div>
 
               <div>
-                <label className="block font-bold text-stone-700 mb-1">Reference / Ticket ID</label>
+                <label className="block font-bold text-stone-700 mb-1">Référence / ID du Ticket</label>
                 <input
                   type="text"
                   value={formRef}
@@ -395,7 +395,7 @@ export const WinnersManagerTab: React.FC = () => {
                     onChange={(e) => setFormIsDemo(e.target.checked)}
                     className="w-4 h-4 text-airtel-red rounded"
                   />
-                  <span>Mark as Demonstration Data</span>
+                  <span>Marquer comme Données de Démonstration</span>
                 </label>
               </div>
 
@@ -405,14 +405,14 @@ export const WinnersManagerTab: React.FC = () => {
                   onClick={() => setModalOpen(false)}
                   className="w-1/2 py-2.5 rounded-xl border border-stone-200 text-stone-600 font-bold hover:bg-stone-50"
                 >
-                  Cancel
+                  Annuler
                 </button>
                 <button
                   type="submit"
                   disabled={saving}
                   className="w-1/2 py-2.5 rounded-xl bg-airtel-red hover:bg-airtel-darkred text-white font-bold transition disabled:opacity-50"
                 >
-                  {saving ? 'Saving...' : 'Save Record'}
+                  {saving ? 'Sauvegarde...' : 'Enregistrer'}
                 </button>
               </div>
             </form>
@@ -423,4 +423,3 @@ export const WinnersManagerTab: React.FC = () => {
     </div>
   );
 };
-

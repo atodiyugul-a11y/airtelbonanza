@@ -8,27 +8,27 @@ export const RewardsPage: React.FC = () => {
   const { rewards, loading } = useCampaign();
   const [selectedReward, setSelectedReward] = useState<RewardCategory | null>(null);
   const [phone, setPhone] = useState('');
-  const [countryCode, setCountryCode] = useState('KE');
+  const [countryCode, setCountryCode] = useState('CD');
   const [submitting, setSubmitting] = useState(false);
   const [registeredSuccess, setRegisteredSuccess] = useState(false);
   const [submittedFullNumber, setSubmittedFullNumber] = useState('');
 
   const countries = [
-    { code: 'CD', name: 'DR Congo (DRC)', prefix: '+243', placeholder: '99 123 4567' },
+    { code: 'CD', name: 'RD Congo (RDC)', prefix: '+243', placeholder: '99 123 4567' },
     { code: 'CG', name: 'Congo (Brazzaville)', prefix: '+242', placeholder: '05 123 4567' },
     { code: 'KE', name: 'Kenya', prefix: '+254', placeholder: '712 345 678' },
     { code: 'NG', name: 'Nigeria', prefix: '+234', placeholder: '802 123 4567' },
-    { code: 'UG', name: 'Uganda', prefix: '+256', placeholder: '752 123 456' },
-    { code: 'TZ', name: 'Tanzania', prefix: '+255', placeholder: '784 123 456' },
-    { code: 'ZM', name: 'Zambia', prefix: '+260', placeholder: '97 123 4567' },
+    { code: 'UG', name: 'Ouganda', prefix: '+256', placeholder: '752 123 456' },
+    { code: 'TZ', name: 'Tanzanie', prefix: '+255', placeholder: '784 123 456' },
+    { code: 'ZM', name: 'Zambie', prefix: '+260', placeholder: '97 123 4567' },
     { code: 'RW', name: 'Rwanda', prefix: '+250', placeholder: '732 123 456' },
     { code: 'MW', name: 'Malawi', prefix: '+265', placeholder: '99 123 4567' },
     { code: 'MG', name: 'Madagascar', prefix: '+261', placeholder: '33 12 345 67' },
     { code: 'GA', name: 'Gabon', prefix: '+241', placeholder: '07 12 34 56' },
-    { code: 'TD', name: 'Chad', prefix: '+235', placeholder: '66 12 34 56' },
+    { code: 'TD', name: 'Tchad', prefix: '+235', placeholder: '66 12 34 56' },
     { code: 'NE', name: 'Niger', prefix: '+227', placeholder: '90 12 34 56' },
     { code: 'SC', name: 'Seychelles', prefix: '+248', placeholder: '2 51 23 45' },
-    { code: 'IN', name: 'India', prefix: '+91', placeholder: '98123 45678' },
+    { code: 'IN', name: 'Inde', prefix: '+91', placeholder: '98123 45678' },
   ];
 
   const selectedCountry = countries.find(c => c.code === countryCode) || countries[0];
@@ -46,7 +46,7 @@ export const RewardsPage: React.FC = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-stone-50 flex items-center justify-center text-stone-400 text-sm">
-        Loading reward categories…
+        Chargement des catégories de prix…
       </div>
     );
   }
@@ -58,13 +58,13 @@ export const RewardsPage: React.FC = () => {
         {/* Page Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
           <p className="text-xs font-bold uppercase tracking-widest text-airtel-red mb-3">
-            December 2026 · USD Rewards
+            Décembre 2026 · Récompenses en USD
           </p>
           <h1 className="text-3xl sm:text-4xl font-black text-stone-900 tracking-tight font-display mb-4">
-            Cash Reward Categories
+            Catégories de Récompenses Cash
           </h1>
           <p className="text-stone-500 text-sm leading-relaxed">
-            Four prize categories designed to reward Airtel subscribers throughout the festive season. All amounts in USD.
+            Quatre catégories de prix conçues pour récompenser les abonnés Airtel tout au long de la saison festive. Tous les montants sont en USD.
           </p>
         </div>
 
@@ -115,7 +115,7 @@ export const RewardsPage: React.FC = () => {
                     <span className={`text-[10px] font-semibold uppercase tracking-wider block mb-1 ${
                       isGrand ? 'text-gold/70' : 'text-stone-400'
                     }`}>
-                      Prize Range (USD)
+                      Fourchette de Prix (USD)
                     </span>
                     <span className={`text-2xl sm:text-3xl font-black font-display ${
                       isGrand ? 'text-gold' : 'text-stone-900'
@@ -129,13 +129,13 @@ export const RewardsPage: React.FC = () => {
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className={`w-4 h-4 flex-shrink-0 ${isGrand ? 'text-gold/70' : 'text-emerald-500'}`} />
                       <span className={isGrand ? 'text-stone-400' : 'text-stone-600'}>
-                        Draw Frequency: <strong className={isGrand ? 'text-stone-200' : 'text-stone-800'}>{reward.drawFrequency}</strong>
+                        Fréquence de tirage : <strong className={isGrand ? 'text-stone-200' : 'text-stone-800'}>{reward.drawFrequency}</strong>
                       </span>
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle className={`w-4 h-4 flex-shrink-0 ${isGrand ? 'text-gold/70' : 'text-emerald-500'}`} />
                       <span className={isGrand ? 'text-stone-400' : 'text-stone-600'}>
-                        Currency: <strong className={isGrand ? 'text-stone-200' : 'text-stone-800'}>USD (United States Dollars)</strong>
+                        Devise : <strong className={isGrand ? 'text-stone-200' : 'text-stone-800'}>USD (Dollars Américains)</strong>
                       </span>
                     </li>
                     <li className="flex items-start gap-2.5">
@@ -167,9 +167,9 @@ export const RewardsPage: React.FC = () => {
 
         {/* Policy note */}
         <div className="rounded-xl bg-white border border-stone-200 p-6 sm:p-8">
-          <h3 className="text-base font-bold text-stone-900 mb-2">Reward Distribution Policy</h3>
+          <h3 className="text-base font-bold text-stone-900 mb-2">Politique de Distribution des Prix</h3>
           <p className="text-sm text-stone-500 leading-relaxed">
-            All prizes are denominated in USD, starting from $500 up to $200,000. Disbursements are processed directly through authorized Airtel banking and Airtel Money channels. No winner will ever be asked to pay any fees or disclose account credentials to receive a prize.
+            Tous les prix sont libellés en USD, à partir de 500 $ jusqu'à 200 000 $. Les versements sont effectués directement via les canaux bancaires et Airtel Money officiellement agréés d'Airtel. Aucun gagnant ne sera jamais invité à payer des frais ou à divulguer ses identifiants pour recevoir son prix.
           </p>
         </div>
 
@@ -197,19 +197,19 @@ export const RewardsPage: React.FC = () => {
             </div>
 
             <div className="space-y-3 text-sm text-stone-600 bg-stone-50 p-4 rounded-lg border border-stone-200 mb-5">
-              <p><strong className="text-stone-800">Description:</strong> {selectedReward.description}</p>
-              <p><strong className="text-stone-800">Draw Frequency:</strong> {selectedReward.drawFrequency}</p>
-              <p><strong className="text-stone-800">Eligibility:</strong> {selectedReward.eligibilityNote}</p>
+              <p><strong className="text-stone-800">Description :</strong> {selectedReward.description}</p>
+              <p><strong className="text-stone-800">Fréquence de tirage :</strong> {selectedReward.drawFrequency}</p>
+              <p><strong className="text-stone-800">Éligibilité :</strong> {selectedReward.eligibilityNote}</p>
             </div>
 
             {/* Quick Phone Registration for this prize tier */}
             <div className="mb-5 p-4 rounded-xl bg-rose-50/50 border border-rose-100 space-y-3">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-airtel-red">
                 <Phone className="w-3.5 h-3.5" />
-                <span>Enter Phone to Register for This Tier</span>
+                <span>Entrez votre numéro pour ce Palier</span>
               </div>
               <p className="text-xs text-stone-500">
-                Submit your mobile number to verify eligibility with campaign administrators.
+                Soumettez votre numéro mobile pour vérifier l'éligibilité auprès des administrateurs de la campagne.
               </p>
               {!registeredSuccess ? (
                 <form
@@ -224,7 +224,7 @@ export const RewardsPage: React.FC = () => {
                       setSubmittedFullNumber(fullNumber);
                       setRegisteredSuccess(true);
                     } catch (err) {
-                      alert('Failed to register phone number.');
+                      alert("Échec de l'enregistrement du numéro.");
                     } finally {
                       setSubmitting(false);
                     }
@@ -259,14 +259,14 @@ export const RewardsPage: React.FC = () => {
                     disabled={submitting}
                     className="w-full py-2 px-3 rounded-lg bg-airtel-red hover:bg-airtel-darkred text-white font-semibold text-xs transition disabled:opacity-50 flex items-center justify-center gap-1.5"
                   >
-                    <span>{submitting ? 'Registering...' : 'Register for Draw'}</span>
+                    <span>{submitting ? 'Enregistrement...' : 'S\'inscrire au Tirage'}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </form>
               ) : (
                 <div className="p-2.5 rounded-lg bg-emerald-50 border border-emerald-200 text-xs text-emerald-800 flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                  <span>Number <strong className="font-mono">{submittedFullNumber}</strong> registered!</span>
+                  <span>Numéro <strong className="font-mono">{submittedFullNumber}</strong> enregistré !</span>
                 </div>
               )}
             </div>
@@ -280,7 +280,7 @@ export const RewardsPage: React.FC = () => {
               }}
               className="w-full py-3 rounded-lg bg-stone-900 text-white font-semibold text-sm hover:bg-airtel-red transition-colors"
             >
-              Close
+              Fermer
             </button>
           </div>
         </div>

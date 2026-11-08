@@ -3,25 +3,25 @@ import { ShieldCheck, Phone, CheckCircle2, AlertCircle, ArrowRight } from 'lucid
 
 export const LiveEligibilityChecker: React.FC = () => {
   const countries = [
-    { code: 'CD', name: 'DR Congo (DRC)', prefix: '+243', placeholder: '99 123 4567' },
+    { code: 'CD', name: 'RD Congo (RDC)', prefix: '+243', placeholder: '99 123 4567' },
     { code: 'CG', name: 'Congo (Brazzaville)', prefix: '+242', placeholder: '05 123 4567' },
     { code: 'KE', name: 'Kenya', prefix: '+254', placeholder: '712 345 678' },
     { code: 'NG', name: 'Nigeria', prefix: '+234', placeholder: '802 123 4567' },
-    { code: 'UG', name: 'Uganda', prefix: '+256', placeholder: '752 123 456' },
-    { code: 'TZ', name: 'Tanzania', prefix: '+255', placeholder: '784 123 456' },
-    { code: 'ZM', name: 'Zambia', prefix: '+260', placeholder: '97 123 4567' },
+    { code: 'UG', name: 'Ouganda', prefix: '+256', placeholder: '752 123 456' },
+    { code: 'TZ', name: 'Tanzanie', prefix: '+255', placeholder: '784 123 456' },
+    { code: 'ZM', name: 'Zambie', prefix: '+260', placeholder: '97 123 4567' },
     { code: 'RW', name: 'Rwanda', prefix: '+250', placeholder: '732 123 456' },
     { code: 'MW', name: 'Malawi', prefix: '+265', placeholder: '99 123 4567' },
     { code: 'MG', name: 'Madagascar', prefix: '+261', placeholder: '33 12 345 67' },
     { code: 'GA', name: 'Gabon', prefix: '+241', placeholder: '07 12 34 56' },
-    { code: 'TD', name: 'Chad', prefix: '+235', placeholder: '66 12 34 56' },
+    { code: 'TD', name: 'Tchad', prefix: '+235', placeholder: '66 12 34 56' },
     { code: 'NE', name: 'Niger', prefix: '+227', placeholder: '90 12 34 56' },
     { code: 'SC', name: 'Seychelles', prefix: '+248', placeholder: '2 51 23 45' },
-    { code: 'IN', name: 'India', prefix: '+91', placeholder: '98123 45678' },
+    { code: 'IN', name: 'Inde', prefix: '+91', placeholder: '98123 45678' },
   ];
 
   const [phone, setPhone] = useState('');
-  const [countryCode, setCountryCode] = useState('KE');
+  const [countryCode, setCountryCode] = useState('CD');
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<any | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -32,7 +32,7 @@ export const LiveEligibilityChecker: React.FC = () => {
     e.preventDefault();
     const rawDigits = phone.replace(/[^0-9]/g, '');
     if (!rawDigits) {
-      setError('Please provide a valid Airtel mobile number.');
+      setError('Veuillez fournir un numéro mobile Airtel valide.');
       return;
     }
 
@@ -50,12 +50,12 @@ export const LiveEligibilityChecker: React.FC = () => {
       });
       const data = await res.json();
       if (!data.success) {
-        setError(data.message || 'Failed to verify mobile number.');
+        setError(data.message || 'Échec de la vérification du numéro mobile.');
       } else {
         setResult(data);
       }
     } catch (err: any) {
-      setError(err.message || 'Network error. Please try again.');
+      setError(err.message || 'Erreur réseau. Veuillez réessayer.');
     } finally {
       setLoading(false);
     }
@@ -66,10 +66,10 @@ export const LiveEligibilityChecker: React.FC = () => {
       {/* Header */}
       <div className="text-center space-y-2">
         <h2 className="text-2xl sm:text-3xl font-black text-stone-900 tracking-tight font-display">
-          Check Your Promotion Entries
+          Vérifiez Vos Participations à la Promotion
         </h2>
         <p className="text-sm text-stone-500 max-w-lg mx-auto leading-relaxed">
-          Active Airtel subscribers accumulate entries through daily usage. Enter your Airtel number to verify your entries for the next draw.
+          Les abonnés Airtel actifs accumulent des participations grâce à leur utilisation quotidienne. Entrez votre numéro Airtel pour vérifier vos participations pour le prochain tirage.
         </p>
       </div>
 
@@ -80,7 +80,7 @@ export const LiveEligibilityChecker: React.FC = () => {
           {/* Country */}
           <div className="sm:col-span-5">
             <label className="block text-xs font-semibold text-stone-600 mb-1.5">
-              Country & Dial Code
+              Pays & Indicatif
             </label>
             <select
               value={countryCode}
@@ -96,7 +96,7 @@ export const LiveEligibilityChecker: React.FC = () => {
           {/* Phone */}
           <div className="sm:col-span-7">
             <label className="block text-xs font-semibold text-stone-600 mb-1.5">
-              Airtel Mobile Number
+              Numéro Mobile Airtel
             </label>
             <div className="flex rounded-lg shadow-sm">
               <span className="inline-flex items-center px-3.5 rounded-l-lg border border-r-0 border-stone-200 bg-stone-100 text-stone-800 font-mono font-bold text-xs sm:text-sm select-none">
@@ -114,7 +114,7 @@ export const LiveEligibilityChecker: React.FC = () => {
               </div>
             </div>
             <p className="text-[11px] text-stone-400 mt-1">
-              Full number: <span className="font-mono text-stone-600 font-bold">{selectedCountry.prefix} {phone || selectedCountry.placeholder}</span>
+              Numéro complet : <span className="font-mono text-stone-600 font-bold">{selectedCountry.prefix} {phone || selectedCountry.placeholder}</span>
             </p>
           </div>
         </div>
@@ -131,7 +131,7 @@ export const LiveEligibilityChecker: React.FC = () => {
           disabled={loading}
           className="w-full py-3 px-6 rounded-lg bg-airtel-red hover:bg-airtel-darkred text-white font-semibold text-sm transition-colors duration-150 flex items-center justify-center gap-2 disabled:opacity-50"
         >
-          {loading ? 'Verifying…' : 'Check Entries & Eligibility'}
+          {loading ? 'Vérification en cours…' : "Vérifier l'Éligibilité & les Participations"}
           <ArrowRight className="w-4 h-4" />
         </button>
       </form>
@@ -142,10 +142,10 @@ export const LiveEligibilityChecker: React.FC = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-emerald-800 font-bold text-sm">
               <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-              Line Verified & Active
+              Ligne Vérifiée & Active
             </div>
             <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-600 text-white uppercase tracking-wider">
-              Confirmed
+              Confirmé
             </span>
           </div>
 
@@ -153,15 +153,15 @@ export const LiveEligibilityChecker: React.FC = () => {
 
           <div className="grid grid-cols-3 gap-3">
             <div className="bg-white p-3 rounded-lg border border-emerald-100">
-              <span className="text-[10px] uppercase font-semibold text-stone-400 block">Total Entries</span>
+              <span className="text-[10px] uppercase font-semibold text-stone-400 block">Total Participations</span>
               <span className="text-lg font-black text-airtel-red font-display">{result.qualifyingEntries}</span>
             </div>
             <div className="bg-white p-3 rounded-lg border border-emerald-100">
-              <span className="text-[10px] uppercase font-semibold text-stone-400 block">Region</span>
+              <span className="text-[10px] uppercase font-semibold text-stone-400 block">Région</span>
               <span className="text-sm font-bold text-stone-800">{result.country}</span>
             </div>
             <div className="bg-white p-3 rounded-lg border border-emerald-100">
-              <span className="text-[10px] uppercase font-semibold text-stone-400 block">Ref. ID</span>
+              <span className="text-[10px] uppercase font-semibold text-stone-400 block">Réf. ID</span>
               <span className="text-xs font-mono font-bold text-stone-700">{result.referenceCode}</span>
             </div>
           </div>
@@ -175,7 +175,7 @@ export const LiveEligibilityChecker: React.FC = () => {
 
       <p className="text-center text-xs text-stone-400 flex items-center justify-center gap-1.5">
         <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
-        Secure Airtel network verification · No fees required
+        Vérification sécurisée sur le réseau Airtel · Aucun frais requis
       </p>
     </div>
   );

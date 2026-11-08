@@ -16,24 +16,24 @@ export const BannerManagerTab: React.FC<Props> = ({ campaign, onRefresh }) => {
   const bannerTemplates = [
     {
       id: 'festive-hero',
-      name: 'Festive Crimson & Gold Bonanza',
+      name: 'Festif Cramoisi & Or Bonanza',
       url: '/banners/festive-hero.jpg',
-      description: 'Classic Airtel red gradient with gold gift boxes, stars, and floating cash coins.',
-      theme: 'Crimson & Gold'
+      description: 'Dégradé rouge Airtel classique avec boîtes-cadeaux en or, étoiles et pièces flottantes.',
+      theme: 'Cramoisi & Or'
     },
     {
       id: 'holiday-lights',
-      name: 'Holiday Lights & New Year Eve Gala',
+      name: 'Lumières de Fête & Gala du Réveillon',
       url: '/banners/holiday-lights.jpg',
-      description: 'Festive holiday lights and confetti celebrating the Grand Prize jackpot.',
-      theme: 'Holiday Gala'
+      description: 'Lumières festives et confettis célébrant le Grand Prix du jackpot.',
+      theme: 'Gala de Fête'
     },
     {
       id: 'december-drops',
-      name: 'Daily Cash Surprise Drops',
+      name: 'Surprises Cash Quotidiennes de Décembre',
       url: '/banners/december-drops.jpg',
-      description: 'Highlighting daily and instant cash rewards starting from $100 USD.',
-      theme: 'Cash Drops'
+      description: 'Mise en avant des récompenses cash quotidiennes et instantanées à partir de 100 $ USD.',
+      theme: 'Pluie de Cash'
     }
   ];
 
@@ -44,7 +44,7 @@ export const BannerManagerTab: React.FC<Props> = ({ campaign, onRefresh }) => {
 
     try {
       await updateCampaign({ activeBannerUrl: url });
-      setFeedback('Active promotional banner theme updated!');
+      setFeedback('Thème de bannière promotionnelle mis à jour !');
       onRefresh();
     } catch (err) {
       console.error(err);
@@ -57,10 +57,10 @@ export const BannerManagerTab: React.FC<Props> = ({ campaign, onRefresh }) => {
     <div className="space-y-6">
       <div className="pb-6 border-b border-stone-200">
         <h2 className="text-xl font-black uppercase text-stone-900 font-display">
-          Promotional Banners & Creative Assets
+          Bannières Promotionnelles &amp; Visuels
         </h2>
         <p className="text-xs text-stone-500 mt-1">
-          Select or configure the promotional banner theme displayed across marketing landing channels.
+          Sélectionnez ou configurez le thème de bannière affiché sur les canaux marketing.
         </p>
       </div>
 
@@ -90,7 +90,7 @@ export const BannerManagerTab: React.FC<Props> = ({ campaign, onRefresh }) => {
                   <div className="text-center p-3 relative z-10">
                     <Sparkles className="w-6 h-6 text-gold mx-auto mb-1 animate-pulse" />
                     <span className="text-xs font-black uppercase tracking-wider block font-display">
-                      AIRTEL DECEMBER CASH BONANZA
+                      AIRTEL GRANDE TOMBOLA CASH
                     </span>
                     <span className="text-[10px] text-rose-200 font-semibold">{template.theme}</span>
                   </div>
@@ -100,7 +100,7 @@ export const BannerManagerTab: React.FC<Props> = ({ campaign, onRefresh }) => {
                   <h3 className="font-bold text-sm text-stone-900">{template.name}</h3>
                   {isSelected && (
                     <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-airtel-red text-white uppercase tracking-wider">
-                      Active
+                      Actif
                     </span>
                   )}
                 </div>
@@ -121,7 +121,7 @@ export const BannerManagerTab: React.FC<Props> = ({ campaign, onRefresh }) => {
                       : 'bg-stone-900 text-white hover:bg-airtel-red'
                   }`}
                 >
-                  {isSelected ? 'Applied' : 'Apply Theme'}
+                  {isSelected ? 'Appliqué' : 'Appliquer le Thème'}
                 </button>
               </div>
             </div>
@@ -131,4 +131,3 @@ export const BannerManagerTab: React.FC<Props> = ({ campaign, onRefresh }) => {
     </div>
   );
 };
-

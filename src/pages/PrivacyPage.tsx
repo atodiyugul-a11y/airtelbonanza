@@ -20,19 +20,19 @@ export const PrivacyPage: React.FC = () => {
 
         {/* Header */}
         <div className="mb-10">
-          <p className="text-xs font-bold uppercase tracking-widest text-airtel-red mb-2">Subscriber Protection</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-airtel-red mb-2">Protection des Abonnés</p>
           <h1 className="text-3xl sm:text-4xl font-black text-stone-900 tracking-tight font-display mb-3">
-            Data Privacy Policy
+            Politique de Confidentialité
           </h1>
           <p className="text-stone-500 text-sm">
-            How subscriber privacy and confidential telecom credentials are safeguarded.
+            Comment la vie privée des abonnés et leurs identifiants télécom sont protégés.
           </p>
         </div>
 
         {/* Content */}
         <div className="bg-white rounded-xl border border-stone-200 p-7 sm:p-10">
           {loading ? (
-            <div className="py-12 text-center text-stone-400 text-sm">Loading privacy policy…</div>
+            <div className="py-12 text-center text-stone-400 text-sm">Chargement de la politique de confidentialité…</div>
           ) : (
             <div className="space-y-8">
               {content?.content.split('### ').filter(Boolean).map((section, idx) => {
@@ -57,11 +57,11 @@ export const PrivacyPage: React.FC = () => {
           <div className="mt-8 pt-6 border-t border-stone-200 flex items-center justify-between text-xs text-stone-400">
             <span className="flex items-center gap-1.5">
               <Calendar className="w-3.5 h-3.5" />
-              Last Updated: {content?.lastUpdated ? new Date(content.lastUpdated).toLocaleDateString() : 'December 2026'}
+              Dernière mise à jour : {content?.lastUpdated ? new Date(content.lastUpdated).toLocaleDateString('fr-FR') : 'Décembre 2026'}
             </span>
             <span className="flex items-center gap-1.5 text-emerald-600 font-semibold">
               <ShieldCheck className="w-3.5 h-3.5" />
-              GDPR & Telecom Regulated Standards
+              Normes Télécom &amp; Protection des Données
             </span>
           </div>
         </div>

@@ -10,17 +10,17 @@ const DB_FILE_PATH = path.resolve(process.cwd(), 'server', 'data', 'store.json')
 
 const DEFAULT_CAMPAIGN: CampaignConfig = {
   id: 'airtel-bonanza-2026',
-  title: 'AIRTEL DECEMBER CASH BONANZA 2026',
-  subtitle: 'Official Airtel Festive Telecommunications Reward Campaign',
-  headline: 'THIS DECEMBER, YOUR LUCK COULD PAY YOU!',
-  subheadline: 'Celebrate the festive season with exciting opportunities to win amazing cash rewards. Discover instant prizes, daily surprises, weekly winners and a spectacular grand prize.',
-  badgeText: 'CASH REWARDS STARTING FROM $100',
-  minPrizeUSD: 100,
+  title: 'AIRTEL GRANDE TOMBOLA CASH DE DÉCEMBRE 2026',
+  subtitle: 'Campagne Promotionnelle Festive Officielle de Récompenses Airtel',
+  headline: 'CE DÉCEMBRE, VOTRE CHANCE POURRAIT VOUS RAPPORTER GROS !',
+  subheadline: 'Célébrez les fêtes de fin d'année avec des opportunités uniques de remporter des prix exceptionnels en espèces. Découvrez des récompenses instantanées, des surprises quotidiennes, des tirages hebdomadaires et un grand jackpot spectaculaire.',
+  badgeText: 'RÉCOMPENSES EN CASH À PARTIR DE 500 $',
+  minPrizeUSD: 500,
   currency: 'USD',
   startDate: '2026-12-01T00:00:00.000Z',
-  closingDate: '2026-12-31T23:59:59.000Z',
+  closingDate: '2026-12-25T23:59:59.000Z',
   isPublished: true,
-  bannerNotice: '🔥 OFFICIAL AIRTEL PROMOTION: Airtel December Cash Bonanza 2026 is LIVE! Cash rewards starting from $100 to $200,000 USD now active.',
+  bannerNotice: '🎄 PROMOTION OFFICIELLE AIRTEL : Clôture le 25 décembre 2026. Grand Prix de 200 000 $ USD tiré et distribué le jour de Noël !',
   bannerNoticeEnabled: true,
   activeBannerUrl: '/banners/festive-hero.jpg',
   lastUpdated: new Date().toISOString()
@@ -29,59 +29,59 @@ const DEFAULT_CAMPAIGN: CampaignConfig = {
 const DEFAULT_REWARDS: RewardCategory[] = [
   {
     id: 'instant',
-    title: 'Instant Cash Rewards',
-    prizeRangeDisplay: '$100 – $500',
-    minAmount: 100,
-    maxAmount: 500,
-    description: 'Exciting instant cash reward opportunities.',
-    buttonText: 'EXPLORE REWARDS',
+    title: 'Récompenses Cash Instantanées',
+    prizeRangeDisplay: '500 $ – 1 000 $',
+    minAmount: 500,
+    maxAmount: 1000,
+    description: 'Des opportunités uniques de gains en cash instantanés.',
+    buttonText: 'EXPLORER LES PRIX',
     enabled: true,
     iconName: 'Zap',
-    badgeTag: 'Instant Surprise',
-    drawFrequency: 'Awarded on qualifying interactions',
-    eligibilityNote: 'Subject to authorized participation parameters and terms.'
+    badgeTag: 'Surprise Instantanée',
+    drawFrequency: 'Attribué lors des interactions éligibles',
+    eligibilityNote: 'Soumis aux critères et conditions officielles de participation.'
   },
   {
     id: 'daily',
-    title: 'Daily Cash Rewards',
-    prizeRangeDisplay: '$100 – $1,000',
-    minAmount: 100,
-    maxAmount: 1000,
-    description: 'Discover exciting daily reward opportunities.',
-    buttonText: 'VIEW DAILY PRIZES',
+    title: 'Récompenses Cash Quotidiennes',
+    prizeRangeDisplay: '1 000 $ – 5 000 $',
+    minAmount: 1000,
+    maxAmount: 5000,
+    description: 'Découvrez des opportunités passionnantes de récompenses chaque jour.',
+    buttonText: 'VOIR LES PRIX DU JOUR',
     enabled: true,
     iconName: 'Clock',
-    badgeTag: 'Every Single Day',
-    drawFrequency: 'Announced daily at 18:00 GMT',
-    eligibilityNote: 'Daily qualifying entries reset each midnight.'
+    badgeTag: 'Chaque Jour',
+    drawFrequency: 'Annoncé chaque jour à 18h00 GMT',
+    eligibilityNote: 'Les participations éligibles se réinitialisent chaque minuit.'
   },
   {
     id: 'weekly',
-    title: 'Weekly Cash Rewards',
-    prizeRangeDisplay: '$500 – $5,000',
-    minAmount: 500,
-    maxAmount: 5000,
-    description: 'Celebrate the week with exciting cash prizes.',
-    buttonText: 'VIEW WEEKLY PRIZES',
+    title: 'Récompenses Cash Hebdomadaires',
+    prizeRangeDisplay: '5 000 $ – 10 000 $',
+    minAmount: 5000,
+    maxAmount: 10000,
+    description: 'Célébrez la semaine avec d'importantes cagnottes en cash.',
+    buttonText: 'VOIR LES PRIX DE LA SEMAINE',
     enabled: true,
     iconName: 'Sparkles',
-    badgeTag: 'Weekend Celebration',
-    drawFrequency: 'Announced every Sunday evening',
-    eligibilityNote: 'Cumulative participation through each calendar week.'
+    badgeTag: 'Célébration du Week-end',
+    drawFrequency: 'Annoncé chaque dimanche soir',
+    eligibilityNote: 'Participation cumulée tout au long de la semaine civile.'
   },
   {
     id: 'grand',
-    title: 'Grand Prize',
-    prizeRangeDisplay: '$10,000 – $200,000',
-    minAmount: 10000,
+    title: 'Grand Prix de Noël',
+    prizeRangeDisplay: '50 000 $ – 200 000 $',
+    minAmount: 50000,
     maxAmount: 200000,
-    description: 'Discover the ultimate December grand prize.',
-    buttonText: 'VIEW GRAND PRIZE',
+    description: 'Découvrez le jackpot ultime de la tombola de décembre.',
+    buttonText: 'VOIR LE GRAND PRIX',
     enabled: true,
     iconName: 'Trophy',
-    badgeTag: 'Ultimate December Jackpot',
-    drawFrequency: 'Spectacular New Year Eve Gala Draw',
-    eligibilityNote: 'The pinnacle award of the December Cash Bonanza.'
+    badgeTag: 'Jackpot Ultime de Décembre',
+    drawFrequency: 'Grand Tirage de Noël — 25 Décembre 2026',
+    eligibilityNote: 'Le gagnant du Grand Prix sera annoncé et récompensé le 25 Décembre 2026.'
   }
 ];
 
@@ -91,8 +91,8 @@ const DEFAULT_WINNERS: Winner[] = [
     name: 'Amina Mwangi',
     country: 'Kenya',
     countryCode: 'KE',
-    prizeCategory: 'Daily Cash Rewards',
-    prizeAmount: 750,
+    prizeCategory: 'Récompenses Cash Quotidiennes',
+    prizeAmount: 2500,
     dateAnnounced: '2026-12-05',
     ticketOrRefNumber: 'BONANZA-KE-8492',
     isDemo: false,
@@ -103,8 +103,8 @@ const DEFAULT_WINNERS: Winner[] = [
     name: 'Kwame Osei',
     country: 'Ghana',
     countryCode: 'GH',
-    prizeCategory: 'Instant Cash Rewards',
-    prizeAmount: 250,
+    prizeCategory: 'Récompenses Cash Instantanées',
+    prizeAmount: 750,
     dateAnnounced: '2026-12-06',
     ticketOrRefNumber: 'BONANZA-GH-3109',
     isDemo: false,
@@ -113,10 +113,10 @@ const DEFAULT_WINNERS: Winner[] = [
   {
     id: 'win-3',
     name: 'Fatou Diop',
-    country: 'Senegal',
+    country: 'Sénégal',
     countryCode: 'SN',
-    prizeCategory: 'Weekly Cash Rewards',
-    prizeAmount: 2500,
+    prizeCategory: 'Récompenses Cash Hebdomadaires',
+    prizeAmount: 6500,
     dateAnnounced: '2026-12-08',
     ticketOrRefNumber: 'BONANZA-SN-7721',
     isDemo: false,
@@ -125,10 +125,10 @@ const DEFAULT_WINNERS: Winner[] = [
   {
     id: 'win-4',
     name: 'Brian Chikwanda',
-    country: 'Zambia',
+    country: 'Zambie',
     countryCode: 'ZM',
-    prizeCategory: 'Daily Cash Rewards',
-    prizeAmount: 1000,
+    prizeCategory: 'Récompenses Cash Quotidiennes',
+    prizeAmount: 3500,
     dateAnnounced: '2026-12-10',
     ticketOrRefNumber: 'BONANZA-ZM-9043',
     isDemo: false,
@@ -139,8 +139,8 @@ const DEFAULT_WINNERS: Winner[] = [
     name: 'Zainab Al-Hassan',
     country: 'Nigeria',
     countryCode: 'NG',
-    prizeCategory: 'Instant Cash Rewards',
-    prizeAmount: 300,
+    prizeCategory: 'Récompenses Cash Instantanées',
+    prizeAmount: 850,
     dateAnnounced: '2026-12-12',
     ticketOrRefNumber: 'BONANZA-NG-1154',
     isDemo: false,
@@ -149,10 +149,10 @@ const DEFAULT_WINNERS: Winner[] = [
   {
     id: 'win-6',
     name: 'David Kigozi',
-    country: 'Uganda',
+    country: 'Ouganda',
     countryCode: 'UG',
-    prizeCategory: 'Weekly Cash Rewards',
-    prizeAmount: 4500,
+    prizeCategory: 'Récompenses Cash Hebdomadaires',
+    prizeAmount: 8500,
     dateAnnounced: '2026-12-15',
     ticketOrRefNumber: 'BONANZA-UG-5582',
     isDemo: false,
@@ -163,8 +163,8 @@ const DEFAULT_WINNERS: Winner[] = [
     name: 'Chipo Moyo',
     country: 'Zimbabwe',
     countryCode: 'ZW',
-    prizeCategory: 'Grand Prize',
-    prizeAmount: 35000,
+    prizeCategory: 'Grand Prix de Noël',
+    prizeAmount: 125000,
     dateAnnounced: '2026-12-25',
     ticketOrRefNumber: 'BONANZA-ZW-0012',
     isDemo: false,
@@ -175,50 +175,50 @@ const DEFAULT_WINNERS: Winner[] = [
 const DEFAULT_FAQS: FAQItem[] = [
   {
     id: 'faq-1',
-    question: 'What is Airtel December Cash Bonanza?',
-    answer: 'The Airtel December Cash Bonanza 2026 is an official festive promotional rewards campaign launched by Airtel to celebrate the season with our valued subscribers across participating regional networks, offering cash rewards from $100 to $200,000 USD throughout the month of December.',
+    question: "Qu'est-ce que la Grande Tombola Cash de Décembre d'Airtel ?",
+    answer: "La Grande Tombola Cash de Décembre 2026 d'Airtel est une campagne promotionnelle festive officielle organisée par Airtel pour récompenser ses abonnés à travers les réseaux participants, avec des prix en espèces allant de 500 $ à 200 000 $ USD durant le mois de décembre.",
     category: 'general',
     displayOrder: 1
   },
   {
     id: 'faq-2',
-    question: 'What cash prizes are available?',
-    answer: 'Four official prize categories are featured: Instant Cash Rewards ($100 – $500), Daily Cash Rewards ($100 – $1,000), Weekly Cash Rewards ($500 – $5,000), and the Grand Prize Cash Reward ($10,000 – $200,000). All prize values are denominated in USD with local currency disbursement options.',
+    question: "Quels sont les prix en espèces disponibles ?",
+    answer: "Quatre catégories de prix officielles sont proposées : Récompenses Instantanées (500 $ – 1 000 $), Récompenses Quotidiennes (1 000 $ – 5 000 $), Récompenses Hebdomadaires (5 000 $ – 10 000 $) et le Grand Prix de Noël (50 000 $ – 200 000 $). Tous les montants sont libellés en USD avec versement équivalent en devise locale via Airtel Money ou compte bancaire.",
     category: 'prizes',
     displayOrder: 2
   },
   {
     id: 'faq-3',
-    question: 'How can I participate?',
-    answer: 'Participation follows three simple, secure steps: 1) Discover the official promotion details; 2) Review the official participation requirements on verified Airtel platforms; 3) Follow the authorized participation process and check official verified winner announcements. Never engage with unverified third-party channels.',
+    question: "Comment participer à la tombola ?",
+    answer: "La participation s'effectue en trois étapes simples et sécurisées : 1) Découvrez les détails de la promotion officielle ; 2) Consultez les critères d'éligibilité sur les plateformes officielles Airtel ; 3) Suivez le processus autorisé et surveillez la publication officielle des gagnants vérifiés. Ne faites jamais confiance aux canaux tiers non officiels.",
     category: 'participation',
     displayOrder: 3
   },
   {
     id: 'faq-4',
-    question: 'When are winners announced?',
-    answer: 'Instant rewards are processed upon verified qualifying events. Daily rewards are announced daily at 18:00 GMT. Weekly rewards are published every Sunday evening, and the spectacular Grand Prize is announced during the New Year Eve celebration draw on official verified portals.',
+    question: "Quand les gagnants sont-ils annoncés ?",
+    answer: "Les récompenses instantanées sont traitées dès la validation de l'interaction éligible. Les récompenses quotidiennes sont annoncées chaque jour à 18h00 GMT. Les gagnants hebdomadaires sont publiés chaque dimanche soir, et le Grand Prix de Noël sera tiré et distribué le 25 Décembre 2026 sur nos plateformes certifiées.",
     category: 'verification',
     displayOrder: 4
   },
   {
     id: 'faq-5',
-    question: 'How can I verify a winner announcement?',
-    answer: 'All legitimate winners are published exclusively on this official portal and verified Airtel channels. Official representatives will never ask for your Airtel Money PIN, passwords, bank account passwords, or One-Time Passwords (OTPs) to verify or receive a reward.',
+    question: "Comment vérifier l'authenticité d'un gagnant ou d'une notification ?",
+    answer: "Tous les gagnants légitimes sont répertoriés exclusivement sur ce portail officiel et sur les canaux certifiés d'Airtel. Aucun agent Airtel ne vous demandera JAMAIS votre code PIN Airtel Money, mot de passe ou code de sécurité OTP reçu par SMS.",
     category: 'verification',
     displayOrder: 5
   },
   {
     id: 'faq-6',
-    question: 'Are there any participation fees?',
-    answer: 'No. Authentic Airtel promotional campaigns do not require participants to pay upfront fees, processing charges, or transfer funds to claim rewards. If anyone requests money to release your prize, it is fraudulent—report it immediately.',
+    question: "Y a-t-il des frais à payer pour recevoir un prix ?",
+    answer: "NON. Les promotions officielles d'Airtel sont entièrement gratuites pour les gagnants. Aucun frais d'enregistrement, taxe préalable ou commission n'est requis pour débloquer votre gain. Si quelqu'un vous réclame de l'argent, c'est une arnaque : signalez-le sans attendre.",
     category: 'general',
     displayOrder: 6
   },
   {
     id: 'faq-7',
-    question: 'How can I contact customer support?',
-    answer: 'For questions regarding this campaign or official Airtel inquiries, visit the official Airtel website at https://www.airtel.com/ or reach out through official Airtel customer support helplines (dial 100 on your Airtel line in participating regions).',
+    question: "Comment contacter le service client officiel d'Airtel ?",
+    answer: "Pour toute demande concernant cette promotion ou les services Airtel, rendez-vous sur le site officiel https://www.airtel.com/ ou joignez le service client Airtel en composant le 100 depuis votre ligne mobile Airtel dans les pays participants.",
     category: 'support',
     displayOrder: 7
   }
@@ -226,48 +226,48 @@ const DEFAULT_FAQS: FAQItem[] = [
 
 const DEFAULT_TERMS: ContentPage = {
   type: 'terms',
-  title: 'Campaign Terms & Conditions',
-  content: `### 1. Official Campaign Launch & Authority
-The "AIRTEL DECEMBER CASH BONANZA 2026" is an officially authorized promotional telecommunications campaign organized by Airtel across participating operational territories. All prize distributions, winner authentications, and event schedules are administered under official Airtel regulatory oversight.
+  title: 'Conditions Générales de la Campagne',
+  content: `### 1. Autorité et Lancement Officiel de la Campagne
+La « GRANDE TOMBOLA CASH DE DÉCEMBRE 2026 D'AIRTEL » est une campagne promotionnelle de télécommunications officiellement autorisée et organisée par Airtel à travers ses territoires opérationnels participants. Toutes les attributions de prix, l'authentification des gagnants et le calendrier des événements sont placés sous le contrôle réglementaire officiel d'Airtel.
 
-### 2. Currency & Prize Values
-All reward amounts displayed on this platform are listed in United States Dollars (USD), with minimum qualifying awards starting at $100 USD. Official disbursements will be processed in USD or local currency equivalent at authorized Airtel banking/mobile wallet rates.
+### 2. Devises et Valeur des Prix
+Tous les montants de récompenses affichés sur cette plateforme sont libellés en dollars américains (USD), avec des prix admissibles débutant à partir de 500 $ USD jusqu'à 200 000 $ USD. Les versements officiels seront effectués en USD ou en devise locale équivalente au taux officiel agréé via Airtel Money ou virement bancaire.
 
-### 3. Eligibility & Fair Play
-Participation is open to registered, active Airtel subscribers of legal age in participating operational regions. Employees, direct affiliates, advertising agencies, and regulatory supervisors are subject to standard promotion compliance guidelines.
+### 3. Éligibilité et Équité
+La participation est réservée aux abonnés Airtel actifs, régulièrement enregistrés et majeurs dans les pays d'opération participants. Les employés d'Airtel, leurs filiales directes, leurs agences de communication et les régulateurs sont soumis aux directives standard de conformité promotionnelle.
 
-### 4. Zero Tolerance for Sensitive Credential Requests
-Airtel and its authorized partners will **NEVER**:
-- Request your mobile money PIN or personal banking PINs.
-- Ask you to read, share, or forward an SMS One-Time Password (OTP).
-- Charge an upfront "processing fee", "tax deposit", or release tariff to receive a won prize.
-- Instruct you to make fund transfers to personal agent numbers.
+### 4. Tolérance Zéro pour les Demandes de Données Confidentielles
+Airtel et ses partenaires agréés ne vous demanderont **JAMAIS** :
+- Votre code PIN Airtel Money ou vos codes bancaires personnels.
+- De lire, partager ou transférer un code de validation à usage unique (OTP) reçu par SMS.
+- De régler des « frais de dossier », « taxes de déblocage » ou acomptes préalables pour percevoir un gain.
+- D'effectuer un transfert d'argent vers le compte privé d'un agent.
 
-### 5. Verification & Official Records
-Only winners published through authorized administrative verification channels and authenticated by official customer care centers are recognized as genuine recipients of campaign awards.
+### 5. Vérification et Registre Officiel
+Seuls les gagnants publiés via nos canaux administratifs autorisés et authentifiés par les centres de service client officiels sont reconnus comme bénéficiaires légitimes de la campagne.
 
-### 6. Modifications & Governing Law
-Campaign organizers reserve the right to modify, reschedule, or manage promotional parameters in accordance with regional telecommunications regulatory requirements.`,
+### 6. Modifications et Droit Applicable
+Les organisateurs de la campagne se réservent le droit d'adapter, de reprogrammer ou de gérer les paramètres promotionnels conformément aux exigences réglementaires des télécommunications régionales.`,
   lastUpdated: new Date().toISOString()
 };
 
 const DEFAULT_PRIVACY: ContentPage = {
   type: 'privacy',
-  title: 'Data Privacy & Subscriber Protection Policy',
-  content: `### 1. Our Commitment to Your Privacy
-Airtel respects and champions subscriber privacy in strict accordance with global telecommunications data protection standards and national regulatory authorities.
+  title: 'Politique de Confidentialité et Protection des Abonnés',
+  content: `### 1. Notre Engagement pour Votre Confidentialité
+Airtel respecte et protège la vie privée de ses abonnés en stricte conformité avec les normes internationales de protection des données de télécommunications et les réglementations nationales.
 
-### 2. Information We Process
-Subscriber interactions with this campaign are processed strictly through secure, encrypted telecommunications gateways. We never collect or store mobile money wallet PINs or personal banking security passwords.
+### 2. Données Traitées
+Les interactions des abonnés avec cette promotion sont traitées exclusivement via des passerelles de télécommunications sécurisées et chiffrées. Nous ne collectons ni ne stockons jamais vos codes PIN Airtel Money ou mots de passe bancaires.
 
-### 3. Winner Disclosure & Consent
-Winner names and geographical representations featured on the platform represent authenticated subscribers consented under standard promotional publicity rules.
+### 3. Divulgation des Gagnants et Consentement
+Les noms et pays des gagnants affichés sur le portail représentent des abonnés authentifiés ayant consenti aux règles standard de publicité promotionnelle.
 
-### 4. Security & Encryption
-All administrative functions, campaign configuration edits, and winner verifications require industry-standard cryptographic authentication (JSON Web Tokens with bcrypt-hashed credentials) over HTTPS.
+### 4. Sécurité et Chiffrement
+Toutes les fonctions administratives, modifications de configuration et vérifications requièrent une authentification cryptographique conforme aux normes de l'industrie (JSON Web Tokens et hachage bcrypt) sur protocole HTTPS.
 
-### 5. Contacting the Data Protection Officer
-For inquiries regarding data privacy and subscriber rights, please consult the official corporate portal at https://www.airtel.com/privacy.`,
+### 5. Contacter le Délégué à la Protection des Données
+Pour toute question relative à la confidentialité des données et aux droits des abonnés, veuillez consulter le portail officiel de l'entreprise sur https://www.airtel.com/privacy.`,
   lastUpdated: new Date().toISOString()
 };
 

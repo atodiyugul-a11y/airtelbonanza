@@ -7,12 +7,12 @@ export const Navbar: React.FC = () => {
   const location = useLocation();
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Cash Rewards', path: '/rewards' },
-    { name: 'How It Works', path: '/how-it-works' },
-    { name: 'Winners', path: '/winners' },
+    { name: 'Accueil', path: '/' },
+    { name: 'Récompenses Cash', path: '/rewards' },
+    { name: 'Comment Participer', path: '/how-it-works' },
+    { name: 'Gagnants', path: '/winners' },
     { name: 'FAQ', path: '/faq' },
-    { name: 'Terms', path: '/terms' },
+    { name: 'Conditions', path: '/terms' },
   ];
 
   const isActive = (path: string) => {
@@ -26,7 +26,7 @@ export const Navbar: React.FC = () => {
       <div className="bg-airtel-red text-white text-xs py-2 px-4 text-center font-medium tracking-wide">
         <span className="inline-flex items-center gap-2">
           <span className="w-1.5 h-1.5 rounded-full bg-white/70 animate-pulse" />
-          AIRTEL DECEMBER CASH BONANZA 2026 — Grand Prize Draw: December 25 · Cash Rewards From $500 USD
+          AIRTEL GRANDE TOMBOLA DE DÉCEMBRE 2026 — Tirage du Grand Prix : 25 Décembre · Récompenses Cash à partir de 500 $ USD
         </span>
       </div>
 
@@ -41,7 +41,7 @@ export const Navbar: React.FC = () => {
                 airtel
               </span>
               <span className="text-[10px] font-bold uppercase tracking-widest text-stone-500">
-                December Cash Bonanza
+                Grande Tombola de Décembre
               </span>
             </div>
           </Link>
